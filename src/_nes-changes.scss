@@ -1,0 +1,30 @@
+.nes-container {
+  margin-bottom: 1rem;
+  background: #faf8ee;
+
+  > * {
+    position: relative;
+    z-index: 300;
+  }
+
+  &::after,
+  &::before {
+    z-index: 100;
+  }
+
+  &.is-rounded {
+    margin-bottom: 2rem;
+  }
+
+  &.with-title {
+    > .title {
+      background-color: #faf8ee;
+      position: relative;
+      z-index: 200;
+    }
+  }
+}
+
+.nes-table {
+  background-color: #faf8ee;
+}
