@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { PlayerService } from '../services/player.service';
 import { Player } from '../models/player.interface';
 
@@ -10,8 +10,23 @@ import { Player } from '../models/player.interface';
 export class HighscoreComponent implements OnInit {
 
   players: Player[] = [];
+  currentPlayer: Player;
 
+  @ViewChild('history') historyRef: ElementRef;
   constructor(private playerService: PlayerService) { }
+
+  deletePlayer(playerId: string) {
+    this.playerService.deletePlayer(playerId);
+  }
+
+  showHistory(playerId: string) {
+    this.currentPlayer = this.players.find(p => p._id === playerId);
+    this.historyRef.nativeElement.showModal();
+  }
+
+  closeDialog() {
+    this.historyRef.nativeElement.close();
+  }
 
   ngOnInit() {
     this.playerService.fetchAllPlayers();

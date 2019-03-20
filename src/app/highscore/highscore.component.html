@@ -5,13 +5,32 @@
       <th>Rank</th>
       <th>Name</th>
       <th>Score</th>
+      <th>Options</th>
     </tr>
   </thead>
   <tbody>
-      <tr *ngFor="let player of players; index as i">
-          <td>{{i+1}}</td>
-          <td>{{player.name}}</td>
-          <td>{{player.totalScore}}</td>
-        </tr>
+    <tr *ngFor="let player of players; index as i">
+      <td>{{i+1}}</td>
+      <td>{{player.name}}</td>
+      <td>{{player.totalScore}}</td>
+      <td>
+        <button (click)="deletePlayer(player._id)">Delete</button>
+        <button (click)="showHistory(player._id)">History</button>
+      </td>
+    </tr>
   </tbody>
 </table>
+
+<dialog #history class="nes-dialog" id="dialog-show-history">
+  <span (click)="closeDialog()">X</span>
+  <div *ngIf="!!currentPlayer">
+    <ul class="history-list" *ngFor="let history of currentPlayer.scores">
+      <li>{{history.score}}</li>
+      <li>{{history.reason}}</li>
+      <li>{{history.dateCreated}}</li>
+    </ul>
+  </div>
+
+
+
+</dialog>
