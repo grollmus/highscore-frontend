@@ -18,13 +18,13 @@
   
       <div class="nes-field">
         <label for="reason_field">Name</label>
-        <input type="text" maxlength="3" id="reason_field" class="nes-input">
+        <input #playerName type="text" maxlength="3" id="reason_field" class="nes-input">
       </div>
   
       
       <menu class="dialog-menu">
         <button class="nes-btn">Cancel</button>&nbsp;
-        <button class="nes-btn is-primary">Confirm</button>
+        <button class="nes-btn is-primary" (click)="addPlayer(playerName.value)">Confirm</button>
       </menu>
     </form>
   </dialog>
@@ -35,26 +35,26 @@
 
     <label for="default_select">Player</label>
     <div class="nes-select">
-      <select required id="default_select">
-        <option disabled selected hidden>Select...</option>
-        <option value="0">To be</option>
-        <option value="1">Not to be</option>
+      <select #players required id="default_select">
+        <ng-container *ngFor="let player of getAllPlayers() | async; index as i">
+            <option value={{player._id}}>{{player.name}}</option>
+        </ng-container>
       </select>
     </div>
 
     <div class="nes-field">
       <label for="reason_field">Reason</label>
-      <input type="text" id="reason_field" class="nes-input">
+      <input #reason type="text" id="reason_field" class="nes-input">
     </div>
 
     <div class="nes-field">
       <label for="points_field">Points</label>
-      <input type="text" id="points_field" class="nes-input">
+      <input #points type="text" id="points_field" class="nes-input">
     </div>
     
     <menu class="dialog-menu">
       <button class="nes-btn">Cancel</button>&nbsp;
-      <button class="nes-btn is-primary">Confirm</button>
+      <button class="nes-btn is-primary" (click)="addScore(players.options[players.selectedIndex].value, reason.value, points.value)">Confirm</button>
     </menu>
   </form>
 </dialog>

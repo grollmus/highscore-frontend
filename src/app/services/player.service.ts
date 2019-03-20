@@ -8,10 +8,39 @@ export class PlayerService {
 
   private apiUrl = 'http://localhost:3000/players';
 
+  private playerSubject: BehaviorSubject<Player[]>;
+  players: Observable<Player[]>;
+
   constructor(private readonly httpClient: HttpClient) {
+    this.playerSubject = new BehaviorSubject([]);
+    this.players = this.playerSubject.asObservable();
   }
 
-  getAllUser() {
-    return this.httpClient.get<Player[]>(this.apiUrl);
+  fetchAllPlayers() {
+    this.httpClient.get<Player[]>(this.apiUrl).subscribe(p => {
+      this.playerSubject.next(p);
+    });
+  }
+
+  addPlayer(name: string) {
+    this.httpClient.post<Player>(this.apiUrl, {
+      name,
+    }).subscribe(p => {
+      const newPlayers = this.playerSubject.value;
+      newPlayers.push(p);
+      this.playerSubject.next(newPlayers);
+    });
+  }
+
+  addScore(playerId: string, reason: string, score: number) {
+    this.httpClient.post<Player>(`${this.apiUrl}/${playerId}/scores`, {
+      score,
+      reason
+    }).subscribe(p => {
+      const players = this.playerSubject.value;
+      const updatePlayer = players.findIndex(player => player._id === p._id);
+      players[updatePlayer] = p;
+      this.playerSubject.next(players);
+    });
   }
 }

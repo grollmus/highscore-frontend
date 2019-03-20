@@ -14,7 +14,8 @@ export class HighscoreComponent implements OnInit {
   constructor(private playerService: PlayerService) { }
 
   ngOnInit() {
-    this.playerService.getAllUser().subscribe(players => {
+    this.playerService.fetchAllPlayers();
+    this.playerService.players.subscribe(players => {
       this.players = players.sort((a: Player, b: Player) => {
         if (a.totalScore > b.totalScore) {
           return 1;

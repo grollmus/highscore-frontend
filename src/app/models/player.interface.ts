@@ -5,5 +5,6 @@ export interface Player {
     scores: Array<Score>;
     dateCreated: Date;
     totalScore: number;
+    _id: string;
 }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PlayerService } from '../services/player.service';
 
 @Component({
   selector: 'app-controls',
@@ -7,7 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ControlsComponent implements OnInit {
 
-  constructor() { }
+
+
+  constructor(private playerService: PlayerService) { }
+
+  addPlayer(name: string) {
+    this.playerService.addPlayer(name);
+  }
+
+  getAllPlayers() {
+    return this.playerService.players;
+  }
+
+  addScore(playerId: string, reason: string, score: number) {
+    this.playerService.addScore(playerId, reason, Number(score));
+  }
 
   ngOnInit() {
   }
