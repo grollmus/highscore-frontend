@@ -10,17 +10,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Pat</td>
-            <td>651651651</td>
-          </tr>
-          <tr>
-            <td>Thou hast had a good morning</td>
-            <td>Thou hast had a good afternoon</td>
-            <td>Thou hast had a good evening</td>
-          </tr>
+          <tr *ngFor="let player of players; index as i">
+            <td>{{i+1}}</td>
+            <td>{{player.name}}</td>
+            <td>{{player.totalScore}}</td>
+          </tr>          
         </tbody>
       </table>
     </div>
 </div>
+
