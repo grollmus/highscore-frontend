@@ -1,0 +1,37 @@
+<div class="nes-container is-rounded with-title">
+  <h3 class="title">Controls</h3>
+  <section>
+    <button type="button" class="nes-btn is-success" onclick="document.getElementById('dialog-add-player').showModal();">
+      Add Score
+    </button>
+    <dialog class="nes-dialog" id="dialog-add-player">
+      <form method="dialog">
+        <p class="title">Add Score</p>
+
+        <label for="default_select">Player</label>
+        <div class="nes-select">
+          <select required id="default_select">
+            <option disabled selected hidden>Select...</option>
+            <option value="0">To be</option>
+            <option value="1">Not to be</option>
+          </select>
+        </div>
+
+        <div class="nes-field">
+          <label for="reason_field">Reason</label>
+          <input type="text" id="reason_field" class="nes-input">
+        </div>
+
+        <div class="nes-field">
+          <label for="points_field">Points</label>
+          <input type="text" id="points_field" class="nes-input">
+        </div>
+        
+        <menu class="dialog-menu">
+          <button class="nes-btn">Cancel</button>&nbsp;
+          <button class="nes-btn is-primary">Confirm</button>
+        </menu>
+      </form>
+    </dialog>
+  </section>
+</div>

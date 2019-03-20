@@ -1,80 +1,14 @@
-<div class="grid-x grid-padding-x">
-  <div class="cell medium-4 medium-offset-4">
-    <h2><i class="nes-logo brand"></i> Grollmus Highscore</h2>
- yolo
-    <section class="nes-container with-title is-rounded">
-      <h3 class="title">Top Players</h3>
-      <div>
-        <table class="nes-table">
-          <thead>
-            <tr>
-              <td>Rank</td>
-              <td>Player</td>
-              <td class="is-right">Score</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let player of ranklist; let i = index">
-              <td>{{i+1}}</td>
-              <td>{{player.name | uppercase}}</td>
-              <td class="is-right">{{player.score | number}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+<div id="nescss">
+  <div class="container">
+    <app-header></app-header>
+    <app-highscore></app-highscore>
+    <section class="showcase">
+      <app-controls></app-controls>
     </section>
-
-    <section class="nes-container with-title is-rounded">
-      <h3 class="title">Controls</h3>
-      <div>
-        <button class="nes-btn is-success" (click)="openModal('addPlayer')">Add Player</button>&nbsp;
-        <button class="nes-btn is-warning" (click)="openModal('changeScore')">Change Score</button>
-      </div>
-    </section>
-
-    <section class="nes-container with-title is-rounded">
-      <h3 class="title">Credits</h3>
-      <div class="is-centered">
-        Made with <i class="nes-icon heart is-small"></i><br>
-        <small>&copy; by Grollmus München GmbH</small>
-      </div>
+    <section class="showcase">
+      <app-footer></app-footer>
     </section>
   </div>
 </div>
 
 <router-outlet></router-outlet>
-
-
-<div class="reavel-container" [ngClass]="{'hide': reavelContainerHidden}" (click)="closeModal()">
-  <div class="reveal" id="addPlayer" [ngClass]="{'hide': reavelsToHide.addPlayer}"l>
-      <section class="nes-container is-rounded">
-        <div>
-          <form>
-            <label>Playername</label>
-            <div class="grid-x grid-margin-x">
-              <div class="cell auto">
-                  <input class="nes-input" type="text" placeholder="Mario" />
-              </div>
-              <div class="cell shrink">
-                  <button class="nes-btn is-success">Submit</button>
-              </div>
-            </div>
-          </form>
-        </div>
-        <button class="close-button" aria-label="Close modal" type="button" (click)="closeModal()">
-            <span aria-hidden="true">&times;</span>
-        </button>
-      </section>
-  </div>
-
-  <div class="reveal" id="changeScore" [ngClass]="{'hide': reavelsToHide.changeScore}">
-      <section class="nes-container is-rounded">
-        <div>
-          #yolo
-        </div>
-        <button class="close-button" aria-label="Close modal" type="button" (click)="closeModal()">
-            <span aria-hidden="true">&times;</span>
-        </button>
-      </section>
-  </div>
-</div>
