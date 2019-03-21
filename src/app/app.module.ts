@@ -9,6 +9,7 @@ import { HighscoreComponent } from './highscore/highscore.component';
 import { ControlsComponent } from './controls/controls.component';
 import { PlayerService } from './services/player.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [
     PlayerService

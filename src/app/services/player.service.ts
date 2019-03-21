@@ -43,4 +43,15 @@ export class PlayerService {
       this.playerSubject.next(players);
     });
   }
+
+  deletePlayer(playerId: string) {
+    this.httpClient.delete<boolean>(`${this.apiUrl}/${playerId}`).subscribe(x => {
+      if (x) {
+        const players = this.playerSubject.value;
+        const deletedPlayerIndex = players.findIndex(player => player._id === playerId);
+        players.splice(deletedPlayerIndex, 1);
+        this.playerSubject.next(players);
+      }
+    });
+  }
 }
