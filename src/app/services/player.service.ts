@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class PlayerService {
 
-  private apiUrl = 'http://192.168.1.73:3000/players';
+  private apiUrl = 'http://highscore.grollmus.local:3000/players';
 
   private playerSubject: BehaviorSubject<Player[]>;
   players: Observable<Player[]>;
