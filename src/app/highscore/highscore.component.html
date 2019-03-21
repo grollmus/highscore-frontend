@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let player of players; index as i">
+    <tr *ngFor="let player of players | slice:0:10; index as i">
       <td>{{i+1}}</td>
       <td><i *ngIf="i === 0 && player.totalScore > 0" class="nes-icon trophy is-small"></i> {{player.name}}</td>
       <td class="text-right">
