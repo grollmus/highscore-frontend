@@ -9,19 +9,19 @@
   <button type="button" class="nes-btn is-warning" onclick="document.getElementById('dialog-add-score').showModal();">
     Add Score
   </button>
+  &nbsp;
+  <button type="button" class="nes-btn is-error" onclick="document.getElementById('dialog-remove-player').showModal();">
+    Remove Player
+  </button>
 </section>
 
 <dialog class="nes-dialog" id="dialog-add-player">
     <form method="dialog">
       <p class="title">Add Player</p>
-
-  
       <div class="nes-field">
         <label for="reason_field">Name</label>
         <input #playerName type="text" maxlength="3" id="reason_field" class="nes-input">
       </div>
-  
-      
       <menu class="dialog-menu">
         <button class="nes-btn">Cancel</button>&nbsp;
         <button class="nes-btn is-primary" (click)="addPlayer(playerName.value)">Confirm</button>
@@ -58,3 +58,23 @@
     </menu>
   </form>
 </dialog>
+
+<dialog class="nes-dialog" id="dialog-remove-player">
+    <form method="dialog">
+      <p class="title">Remove Player</p>
+  
+      <label for="default_select">Player</label>
+      <div class="nes-select">
+        <select #playersToDelete required id="default_select">
+          <ng-container *ngFor="let player of getAllPlayers() | async; index as i">
+              <option value={{player._id}}>{{player.name}}</option>
+          </ng-container>
+        </select>
+      </div>
+      
+      <menu class="dialog-menu">
+        <button class="nes-btn">Cancel</button>&nbsp;
+        <button class="nes-btn is-primary" (click)="deletePlayer(playersToDelete.options[playersToDelete.selectedIndex].value)">Confirm</button>
+      </menu>
+    </form>
+  </dialog>

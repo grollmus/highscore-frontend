@@ -12,7 +12,10 @@ body {
     2px -2px 0px black,
     -2px  2px 0px black,
     -2px -2px 0px black;
-  }
+}
+
+.text-right { text-align: right; }
+.text-center { text-align: center; }
 
 a {
   color: $link-color;
@@ -20,13 +23,16 @@ a {
   &:hover,
   &:focus {
     text-decoration: none;
+    color: $link-color-hover;
   }
 }
 
-table, header {
+table, header, dialog {
   color: $dark-gray;
   text-shadow: none;
 }
+
+h1, h2, h3, h4, h5, h6, th { font-weight: normal; }
 
 #nescss > .container {
   max-width: 980px;

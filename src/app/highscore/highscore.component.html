@@ -5,17 +5,22 @@
       <th>Rank</th>
       <th>Name</th>
       <th>Score</th>
-      <th>Options</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let player of players; index as i">
       <td>{{i+1}}</td>
-      <td><i *ngIf="i === 0" class="nes-icon trophy is-small"></i> {{player.name}}</td>
-      <td>{{player.totalScore}}</td>
-      <td>
-        <button (click)="deletePlayer(player._id)">Delete</button>
-        <button (click)="showHistory(player._id)">History</button>
+      <td><i *ngIf="i === 0 && player.totalScore > 0" class="nes-icon trophy is-small"></i> {{player.name}}</td>
+      <td class="text-right">
+        {{player.totalScore | number}}
+        <a *ngIf="player.totalScore > 0" (click)="showHistory(player._id)"><i class="nes-icon coin is-small "></i></a>
+      </td>
+    </tr>
+
+    <tr *ngIf="players.length <= 0">
+      <td class="nes-text is-error text-center" colspan="3">
+        <i class="nes-kirby"></i><br>
+        No Players added
       </td>
     </tr>
   </tbody>

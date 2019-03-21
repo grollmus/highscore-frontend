@@ -16,6 +16,10 @@ export class ControlsComponent implements OnInit {
     this.playerService.addPlayer(name);
   }
 
+  deletePlayer(playerId: string) {
+    this.playerService.deletePlayer(playerId);
+  }
+
   getAllPlayers() {
     return this.playerService.players;
   }
