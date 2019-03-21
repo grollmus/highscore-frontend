@@ -1,1 +1,9 @@
+@import 'settings';
 @import 'nes-changes';
+
+body {
+  background: url(assets/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
