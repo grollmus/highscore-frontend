@@ -29,11 +29,22 @@
 <dialog #history class="nes-dialog" id="dialog-show-history">
   <span (click)="closeDialog()">X</span>
   <div *ngIf="!!currentPlayer">
-    <ul class="history-list" *ngFor="let history of currentPlayer.scores">
-      <li>{{history.score}}</li>
-      <li>{{history.reason}}</li>
-      <li>{{history.dateCreated}}</li>
-    </ul>
+    <table class="nes-table is-bordered is-centered">
+      <thead>
+        <tr>
+          <th>Score</th>
+          <th>Reason</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let history of currentPlayer.scores">
+          <td>{{history.score}}</td>
+          <td>{{history.reason}}</td>
+          <td>{{history.dateCreated | date}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
 
