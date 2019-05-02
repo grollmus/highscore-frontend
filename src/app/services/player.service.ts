@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Player } from '../models/player.interface';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
+import { Player } from '../models/player.interface';
 
 @Injectable()
 export class PlayerService {
 
-  private apiUrl = 'http://highscore.grollmus.local:3000/players';
+  private apiUrl = environment.api.players;
 
   private playerSubject: BehaviorSubject<Player[]>;
   players: Observable<Player[]>;
