@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import * as dialogPolyfill from 'dialog-polyfill/dist/dialog-polyfill';
 import { PlayerService } from '../services/player.service';
 
 @Component({
@@ -6,9 +7,20 @@ import { PlayerService } from '../services/player.service';
   templateUrl: './controls.component.html',
   styleUrls: ['./controls.component.scss']
 })
+
 export class ControlsComponent implements OnInit {
 
+  @ViewChild('addPlayerDialog')
+  private addPlayerDialog: ElementRef;
+  nativeAddPlayerDialog: any;
 
+  @ViewChild('addScoreDialog')
+  private addScoreDialog: ElementRef;
+  nativeAddScoreDialog: any;
+
+  @ViewChild('removePlayerDialog')
+  private removePlayerDialog: ElementRef;
+  nativeRemovePlayerDialog: any;
 
   constructor(private playerService: PlayerService) { }
 
@@ -29,6 +41,13 @@ export class ControlsComponent implements OnInit {
   }
 
   ngOnInit() {
+    dialogPolyfill.registerDialog(this.addPlayerDialog.nativeElement);
+    dialogPolyfill.registerDialog(this.addScoreDialog.nativeElement);
+    dialogPolyfill.registerDialog(this.removePlayerDialog.nativeElement);
+
+    this.nativeAddPlayerDialog = this.addPlayerDialog.nativeElement;
+    this.nativeAddScoreDialog = this.addScoreDialog.nativeElement;
+    this.nativeRemovePlayerDialog = this.removePlayerDialog.nativeElement;
   }
 
 }

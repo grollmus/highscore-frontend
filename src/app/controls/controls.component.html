@@ -15,21 +15,21 @@
   </button>
 </section>
 
-<dialog class="nes-dialog" id="dialog-add-player">
-    <form method="dialog">
-      <p class="title">Add Player</p>
-      <div class="nes-field">
-        <label for="reason_field">Name</label>
-        <input #playerName type="text" maxlength="3" id="reason_field" class="nes-input">
-      </div>
-      <menu class="dialog-menu">
-        <button class="nes-btn">Cancel</button>&nbsp;
-        <button class="nes-btn is-primary" (click)="addPlayer(playerName.value)">Confirm</button>
-      </menu>
-    </form>
-  </dialog>
+<dialog class="nes-dialog" id="dialog-add-player" #addPlayerDialog>
+  <form method="dialog">
+    <p class="title">Add Player</p>
+    <div class="nes-field">
+      <label for="reason_field">Name</label>
+      <input #playerName type="text" maxlength="3" id="reason_field" class="nes-input">
+    </div>
+    <menu class="dialog-menu">
+      <button class="nes-btn" type="reset" (click)="nativeAddPlayerDialog.close()">Cancel</button>&nbsp;
+      <button class="nes-btn is-primary" type="submit" (click)="addPlayer(playerName.value)">Confirm</button>
+    </menu>
+  </form>
+</dialog>
 
-<dialog class="nes-dialog" id="dialog-add-score">
+<dialog class="nes-dialog" id="dialog-add-score" #addScoreDialog>
   <form method="dialog">
     <p class="title">Add Score</p>
 
@@ -53,13 +53,13 @@
     </div>
     
     <menu class="dialog-menu">
-      <button class="nes-btn">Cancel</button>&nbsp;
+      <button class="nes-btn" type="reset" (click)="nativeAddScoreDialog.close()">Cancel</button>&nbsp;
       <button class="nes-btn is-primary" (click)="addScore(players.options[players.selectedIndex].value, reason.value, points.value)">Confirm</button>
     </menu>
   </form>
 </dialog>
 
-<dialog class="nes-dialog" id="dialog-remove-player">
+<dialog class="nes-dialog" id="dialog-remove-player" #removePlayerDialog>
     <form method="dialog">
       <p class="title">Remove Player</p>
   
@@ -73,7 +73,7 @@
       </div>
       
       <menu class="dialog-menu">
-        <button class="nes-btn">Cancel</button>&nbsp;
+        <button class="nes-btn" type="reset"(click)="nativeRemovePlayerDialog.close()">Cancel</button>&nbsp;
         <button class="nes-btn is-primary" (click)="deletePlayer(playersToDelete.options[playersToDelete.selectedIndex].value)">Confirm</button>
       </menu>
     </form>
