@@ -12,7 +12,7 @@ export class HighscoreComponent implements OnInit {
   players: Player[] = [];
   currentPlayer: Player;
 
-  @ViewChild('history') historyRef: ElementRef;
+  @ViewChild('history', { static: true }) historyRef: ElementRef;
   constructor(private playerService: PlayerService) { }
 
   deletePlayer(playerId: string) {

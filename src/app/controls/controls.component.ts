@@ -10,15 +10,15 @@ import { PlayerService } from '../services/player.service';
 
 export class ControlsComponent implements OnInit {
 
-  @ViewChild('addPlayerDialog')
+  @ViewChild('addPlayerDialog', { static: true })
   private addPlayerDialog: ElementRef;
   nativeAddPlayerDialog: any;
 
-  @ViewChild('addScoreDialog')
+  @ViewChild('addScoreDialog', { static: true })
   private addScoreDialog: ElementRef;
   nativeAddScoreDialog: any;
 
-  @ViewChild('removePlayerDialog')
+  @ViewChild('removePlayerDialog', { static: true })
   private removePlayerDialog: ElementRef;
   nativeRemovePlayerDialog: any;
 
