@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
   api: {
-    players: 'http://highscore.grollmus.local/api/players',
+    players: 'https://highscore.grollmus.local/api/players',
   }
 };
