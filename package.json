@@ -8,8 +8,6 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "aws:push": "aws s3 cp dist/GrollmusLeaderboardClient/ s3://gm-intern-leaderboard --recursive --acl public-read --profile aws-grollmus-dan",
-    "deploy": "npm run build & npm run aws:push"
   },
   "private": true,
   "dependencies": {
