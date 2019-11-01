@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { PlayerService } from '../services/player.service';
-import { Player } from '../models/player.interface';
+import { PlayerService } from '../../services/player.service';
+import { Player } from '../../models/player.interface';
 
 @Component({
   selector: 'app-highscore',

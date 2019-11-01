@@ -1,0 +1,26 @@
+@import "settings";
+@import "nes-changes";
+@import "foundation";
+@import "~dialog-polyfill/dialog-polyfill.css";
+
+@include foundation-everything;
+
+body {
+  background: url(../assets/background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Press Start 2P", cursive;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Press Start 2P", cursive;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+  }
+}

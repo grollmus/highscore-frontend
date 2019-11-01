@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import * as dialogPolyfill from 'dialog-polyfill/dist/dialog-polyfill';
-import { PlayerService } from '../services/player.service';
+import { PlayerService } from '../../services/player.service';
 
 @Component({
   selector: 'app-controls',

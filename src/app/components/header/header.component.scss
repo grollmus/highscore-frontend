@@ -1,0 +1,15 @@
+$header-background: white !default;
+$header-border-bottom: 0.25rem solid #d5d5d5 !default;
+
+@mixin header {
+  .header {
+    background: $header-background;
+    border-bottom: $header-border-bottom;
+    padding: 0.5rem;
+    i {
+      top: -1rem;
+    }
+  }
+}
+
+@include header;

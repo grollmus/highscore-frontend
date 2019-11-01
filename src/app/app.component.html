@@ -1,13 +1,18 @@
-<div id="nescss">
-  <div class="container">
+<div class="grid-y medium-grid-frame">
+  <div class="cell shrink header medium-cell-block-container">
     <app-header></app-header>
-    <section class="topic">
-      <h2 id="about">
-        <a href="#about">#</a>About
-      </h2>
-      <p>Awesome Creative-Day Project</p>
-    </section>
-    <app-highscore></app-highscore>
+  </div>
+  <div class="cell medium-auto medium-cell-block-container">
+    <div class="grid-x">
+      <div class="cell medium-cell-block-y">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div id="nescss">
+  <div class="container">
     <section class="showcase">
       <app-controls></app-controls>
     </section>
@@ -15,6 +20,4 @@
       <app-footer></app-footer>
     </section>
   </div>
-</div>
-
-<router-outlet></router-outlet>
+</div> -->
