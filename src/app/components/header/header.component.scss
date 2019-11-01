@@ -6,6 +6,8 @@ $header-border-bottom: 0.25rem solid #d5d5d5 !default;
     background: $header-background;
     border-bottom: $header-border-bottom;
     padding: 0.5rem;
+    position: relative;
+
     i {
       top: -1rem;
     }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import * as dialogPolyfill from 'dialog-polyfill/dist/dialog-polyfill';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  loginDialog: HTMLDialogElement;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
+    this.loginDialog = document.querySelector('#dialog-login');
+    dialogPolyfill.registerDialog(this.loginDialog);
   }
-
 }
