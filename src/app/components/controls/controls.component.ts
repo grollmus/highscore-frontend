@@ -7,22 +7,12 @@ import { PlayerService } from '../../services/player.service';
   templateUrl: './controls.component.html',
   styleUrls: ['./controls.component.scss']
 })
-
 export class ControlsComponent implements OnInit {
+  addPlayerDialog: HTMLDialogElement;
+  addScoreDialog: HTMLDialogElement;
+  removePlayerDialog: HTMLDialogElement;
 
-  @ViewChild('addPlayerDialog', { static: true })
-  private addPlayerDialog: ElementRef;
-  nativeAddPlayerDialog: any;
-
-  @ViewChild('addScoreDialog', { static: true })
-  private addScoreDialog: ElementRef;
-  nativeAddScoreDialog: any;
-
-  @ViewChild('removePlayerDialog', { static: true })
-  private removePlayerDialog: ElementRef;
-  nativeRemovePlayerDialog: any;
-
-  constructor(private playerService: PlayerService) { }
+  constructor(private playerService: PlayerService) {}
 
   addPlayer(name: string) {
     this.playerService.addPlayer(name);
@@ -41,13 +31,8 @@ export class ControlsComponent implements OnInit {
   }
 
   ngOnInit() {
-    dialogPolyfill.registerDialog(this.addPlayerDialog.nativeElement);
-    dialogPolyfill.registerDialog(this.addScoreDialog.nativeElement);
-    dialogPolyfill.registerDialog(this.removePlayerDialog.nativeElement);
-
-    this.nativeAddPlayerDialog = this.addPlayerDialog.nativeElement;
-    this.nativeAddScoreDialog = this.addScoreDialog.nativeElement;
-    this.nativeRemovePlayerDialog = this.removePlayerDialog.nativeElement;
+    dialogPolyfill.registerDialog(this.addPlayerDialog);
+    dialogPolyfill.registerDialog(this.addScoreDialog);
+    dialogPolyfill.registerDialog(this.removePlayerDialog);
   }
-
 }

@@ -1,16 +1,26 @@
 <section class="topic">
-  <h2 id="controls">
-    <a href="#controls">#</a>Controls
-  </h2>
-  <button type="button" class="nes-btn is-success" onclick="document.getElementById('dialog-add-player').showModal();">
+  <h2 id="controls"><a href="#controls">#</a>Controls</h2>
+  <button
+    type="button"
+    class="nes-btn is-success"
+    (click)="addPlayerDialog.showModal()"
+  >
     Add Player
   </button>
   &nbsp;
-  <button type="button" class="nes-btn is-warning" onclick="document.getElementById('dialog-add-score').showModal();">
+  <button
+    type="button"
+    class="nes-btn is-warning"
+    (click)="addScoreDialog.showModal()"
+  >
     Add Score
   </button>
   &nbsp;
-  <button type="button" class="nes-btn is-error" onclick="document.getElementById('dialog-remove-player').showModal();">
+  <button
+    type="button"
+    class="nes-btn is-error"
+    (click)="removePlayerDialog.showModal()"
+  >
     Remove Player
   </button>
 </section>
@@ -20,11 +30,25 @@
     <p class="title">Add Player</p>
     <div class="nes-field">
       <label for="reason_field">Name</label>
-      <input #playerName type="text" maxlength="3" id="reason_field" class="nes-input">
+      <input
+        #playerName
+        type="text"
+        maxlength="3"
+        id="reason_field"
+        class="nes-input"
+      />
     </div>
     <menu class="dialog-menu">
-      <button class="nes-btn" type="reset" (click)="nativeAddPlayerDialog.close()">Cancel</button>&nbsp;
-      <button class="nes-btn is-primary" type="submit" (click)="addPlayer(playerName.value)">Confirm</button>
+      <button class="nes-btn" type="reset" (click)="addPlayerDialog.close()">
+        Cancel</button
+      >&nbsp;
+      <button
+        class="nes-btn is-primary"
+        type="submit"
+        (click)="addPlayer(playerName.value)"
+      >
+        Confirm
+      </button>
     </menu>
   </form>
 </dialog>
@@ -36,45 +60,73 @@
     <label for="default_select">Player</label>
     <div class="nes-select">
       <select #players required id="default_select">
-        <ng-container *ngFor="let player of getAllPlayers() | async; index as i">
-            <option value={{player._id}}>{{player.name}}</option>
+        <ng-container
+          *ngFor="let player of getAllPlayers() | async; index as i"
+        >
+          <option value="{{ player._id }}">{{ player.name }}</option>
         </ng-container>
       </select>
     </div>
 
     <div class="nes-field">
       <label for="reason_field">Reason</label>
-      <input #reason type="text" id="reason_field" class="nes-input">
+      <input #reason type="text" id="reason_field" class="nes-input" />
     </div>
 
     <div class="nes-field">
       <label for="points_field">Points</label>
-      <input #points type="text" id="points_field" class="nes-input">
+      <input #points type="text" id="points_field" class="nes-input" />
     </div>
-    
+
     <menu class="dialog-menu">
-      <button class="nes-btn" type="reset" (click)="nativeAddScoreDialog.close()">Cancel</button>&nbsp;
-      <button class="nes-btn is-primary" (click)="addScore(players.options[players.selectedIndex].value, reason.value, points.value)">Confirm</button>
+      <button class="nes-btn" type="reset" (click)="addScoreDialog.close()">
+        Cancel</button
+      >&nbsp;
+      <button
+        class="nes-btn is-primary"
+        (click)="
+          addScore(
+            players.options[players.selectedIndex].value,
+            reason.value,
+            points.value
+          )
+        "
+      >
+        Confirm
+      </button>
     </menu>
   </form>
 </dialog>
 
 <dialog class="nes-dialog" id="dialog-remove-player" #removePlayerDialog>
-    <form method="dialog">
-      <p class="title">Remove Player</p>
-  
-      <label for="default_select">Player</label>
-      <div class="nes-select">
-        <select #playersToDelete required id="default_select">
-          <ng-container *ngFor="let player of getAllPlayers() | async; index as i">
-              <option value={{player._id}}>{{player.name}}</option>
-          </ng-container>
-        </select>
-      </div>
-      
-      <menu class="dialog-menu">
-        <button class="nes-btn" type="reset"(click)="nativeRemovePlayerDialog.close()">Cancel</button>&nbsp;
-        <button class="nes-btn is-primary" (click)="deletePlayer(playersToDelete.options[playersToDelete.selectedIndex].value)">Confirm</button>
-      </menu>
-    </form>
-  </dialog>
+  <form method="dialog">
+    <p class="title">Remove Player</p>
+
+    <label for="default_select">Player</label>
+    <div class="nes-select">
+      <select #playersToDelete required id="default_select">
+        <ng-container
+          *ngFor="let player of getAllPlayers() | async; index as i"
+        >
+          <option value="{{ player._id }}">{{ player.name }}</option>
+        </ng-container>
+      </select>
+    </div>
+
+    <menu class="dialog-menu">
+      <button class="nes-btn" type="reset" (click)="removePlayerDialog.close()">
+        Cancel</button
+      >&nbsp;
+      <button
+        class="nes-btn is-primary"
+        (click)="
+          deletePlayer(
+            playersToDelete.options[playersToDelete.selectedIndex].value
+          )
+        "
+      >
+        Confirm
+      </button>
+    </menu>
+  </form>
+</dialog>
