@@ -34,6 +34,10 @@ npm run dev
 
 - Github: [@wanieldeiss](https://github.com/wanieldeiss)
 
+## Contributors
+
+👤 **Patrick Henkelmann**
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/grollmus/highscore-backend/issues).
