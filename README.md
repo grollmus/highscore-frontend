@@ -1,27 +1,52 @@
-# GrollmusLeaderboardClient
+<h1 align="center">Welcome to Grollmus Highscore Frontend 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.1.0-blue.svg?cacheSeconds=2592000" />
+  <a href="LICENSE" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.
+> Frontend for the Grollmus Highscore-Board to count Creative-Day points.
 
-## Development server
+### ✨ [Demo](http://demo.demo.com)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Install
 
-## Code scaffolding
+```sh
+npm install
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Usage
 
-## Build
+```sh
+npm run dev
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Author
 
-## Running unit tests
+👤 **Grollmus München GmbH <developers@grollmus.de> (https://www.grollmus.de/)**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Github: [@grollmus](https://github.com/grollmus)
 
-## Running end-to-end tests
+## Maintainer
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+👤 **Daniel Weiß <daniel.weiss@grollmus.de> (https://www.grollmus.de/)**
 
-## Further help
+- Github: [@wanieldeiss](https://github.com/wanieldeiss)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/grollmus/highscore-backend/issues).
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+## 📝 License
+
+Copyright © 2019 [Grollmus München GmbH <developers@grollmus.de> (https://www.grollmus.de/)](https://github.com/grollmus).<br />
+This project is [MIT](LICENSE) licensed.
+
+---
+
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
