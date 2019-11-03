@@ -1,6 +1,14 @@
 {
   "name": "highscore-frontend",
-  "version": "1.0.0",
+  "version": "1.1.0",
+  "description": "Frontend for the Grollmus Highscore-Board to count Creative-Day points.",
+  "author": "Grollmus München GmbH <developers@grollmus.de> (https://www.grollmus.de/)",
+  "maintainers": [
+    "Daniel Weiß <daniel.weiss@grollmus.de> (https://www.grollmus.de)"
+  ],
+  "contributors": [
+    "Patrick Henkelmann"
+  ],
   "scripts": {
     "ng": "ng",
     "dev": "ng serve",
