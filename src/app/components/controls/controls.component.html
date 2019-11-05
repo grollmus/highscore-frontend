@@ -1,29 +1,26 @@
-<section class="topic">
-  <h2 id="controls"><a href="#controls">#</a>Controls</h2>
-  <button
-    type="button"
-    class="nes-btn is-success"
-    (click)="addPlayerDialog.showModal()"
-  >
-    Add Player
-  </button>
-  &nbsp;
-  <button
-    type="button"
-    class="nes-btn is-warning"
-    (click)="addScoreDialog.showModal()"
-  >
-    Add Score
-  </button>
-  &nbsp;
-  <button
-    type="button"
-    class="nes-btn is-error"
-    (click)="removePlayerDialog.showModal()"
-  >
-    Remove Player
-  </button>
-</section>
+<button
+  type="button"
+  class="nes-btn is-success"
+  (click)="addPlayerDialog.showModal()"
+>
+  Add Player
+</button>
+&nbsp;
+<button
+  type="button"
+  class="nes-btn is-warning"
+  (click)="addScoreDialog.showModal()"
+>
+  Add Score
+</button>
+&nbsp;
+<button
+  type="button"
+  class="nes-btn is-error"
+  (click)="removePlayerDialog.showModal()"
+>
+  Remove Player
+</button>
 
 <dialog class="nes-dialog" id="dialog-add-player" #addPlayerDialog>
   <form method="dialog">
