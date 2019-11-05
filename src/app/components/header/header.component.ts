@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import * as dialogPolyfill from 'dialog-polyfill/dist/dialog-polyfill';
 import { Auth } from 'src/app/models/auth.interface';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,10 @@ export class HeaderComponent implements OnInit {
   loginDialog: HTMLDialogElement;
   isLoggedIn = this.authService.isLoggedIn();
 
-  constructor(private readonly authService: AuthService) {}
+  constructor(
+    private readonly authService: AuthService,
+    private readonly router: Router
+  ) {}
 
   ngOnInit() {
     this.loginDialog = document.querySelector('#dialog-login');
@@ -27,6 +31,7 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.authService.logout();
+    this.router.navigate(['']);
     this.isLoggedIn = false;
   }
 }

@@ -3,8 +3,17 @@
     <div class="cell text-center">
       <h1>
         <i class="nes-logo" (click)="logout()"></i>
-        Grollmus Highscore
-        <i class="snes-jp-logo" (click)="loginDialog.showModal()"></i>
+        <a routerLink="/">Grollmus Highscore</a>
+        <i
+          *ngIf="!isLoggedIn"
+          class="snes-jp-logo"
+          (click)="loginDialog.showModal()"
+        ></i>
+        <i
+          *ngIf="isLoggedIn"
+          class="snes-jp-logo"
+          [routerLink]="['/admin']"
+        ></i>
       </h1>
       <span *ngIf="isLoggedIn" class="nes-text is-success">
         You are Logged-In
