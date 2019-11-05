@@ -1,0 +1,31 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/highscore-frontend
+    docker:
+      - image: circleci/node:12.12.0-browsers
+    steps:
+      - checkout
+      - run:
+          name: Show current branch
+          command: echo ${CIRCLE_BRANCH}
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package-lock.json" }}
+            - v1-dependencies-
+      - run:
+          name: Install dependencies
+          command: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package-lock.json" }}
+      - run:
+          name: Lint Project
+          command: npm run lint
+      - run:
+          name: Testing
+          command: npm test -- --watch=false --browsers=ChromeHeadless
+      # - run:
+      #     name: End to End Test
+      #     command: npm run e2e -- --protractor-config=e2e/protractor.conf.js

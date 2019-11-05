@@ -4,6 +4,7 @@
   <a href="LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
+  <img alt="CircleCI" src="https://img.shields.io/circleci/build/github/grollmus/highscore-frontend/master">
 </p>
 
 > Frontend for the Grollmus Highscore-Board to count Creative-Day points.
