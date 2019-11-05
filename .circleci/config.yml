@@ -26,6 +26,6 @@ jobs:
       - run:
           name: Testing
           command: npm test -- --watch=false --browsers=ChromeHeadless
-      - run:
-          name: End to End Test
-          command: npm run e2e -- --protractor-config=e2e/protractor.conf.js
+      # - run:
+      #     name: End to End Test
+      #     command: npm run e2e -- --protractor-config=e2e/protractor.conf.js
