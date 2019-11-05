@@ -1,11 +1,14 @@
 <header class="header">
   <div class="grid-x">
-    <div class="cell">
-      <h1 class="text-center">
-        <i class="nes-logo"></i>
-        Grollmus Highscore <span *ngIf="isLoggedIn">yolo</span>
+    <div class="cell text-center">
+      <h1>
+        <i class="nes-logo" (click)="logout()"></i>
+        Grollmus Highscore
         <i class="snes-jp-logo" (click)="loginDialog.showModal()"></i>
       </h1>
+      <span *ngIf="isLoggedIn" class="nes-text is-success">
+        You are Logged-In
+      </span>
     </div>
   </div>
 </header>

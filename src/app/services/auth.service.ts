@@ -4,18 +4,28 @@ import * as moment from 'moment';
 import { environment } from '../../environments/environment';
 import { Auth } from '../models/auth.interface';
 import { Jwt } from '../models/jwt.interface';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private readonly authUrl = environment.api.auth;
-  constructor(private readonly httpClient: HttpClient) {}
+  constructor(
+    private readonly httpClient: HttpClient,
+    private readonly router: Router
+  ) {}
 
   login(loginData: Auth): void {
-    this.httpClient
-      .post(this.authUrl, loginData)
-      .subscribe((res: Jwt) => this.setSession(res));
+    this.httpClient.post(this.authUrl, loginData).subscribe(
+      (res: Jwt) => {
+        this.setSession(res);
+        this.router.navigate(['admin']);
+      },
+      (err: any) => {
+        alert('ERROR!');
+      }
+    );
   }
 
   logout(): void {
