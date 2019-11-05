@@ -1,6 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {
+  HttpClientTestingModule,
+  HttpTestingController
+} from '@angular/common/http/testing';
 
 import { IndexComponent } from './index.component';
+import { HighscoreComponent } from '../../components/highscore/highscore.component';
+import { PlayerService } from '../../services/player.service';
 
 describe('IndexComponent', () => {
   let component: IndexComponent;
@@ -8,9 +15,10 @@ describe('IndexComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IndexComponent ]
-    })
-    .compileComponents();
+      declarations: [IndexComponent, HighscoreComponent],
+      providers: [PlayerService],
+      imports: [HttpClientModule, HttpClientTestingModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
