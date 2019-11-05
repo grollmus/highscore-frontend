@@ -25,7 +25,7 @@ jobs:
           command: npm run lint
       - run:
           name: Testing
-          command: ng test --watch=false --browsers=ChromeHeadless
+          command: npm test -- --watch=false --browsers=ChromeHeadless
       - run:
           name: End to End Test
           command: npm run e2e -- --protractor-config=e2e/protractor.conf.js
