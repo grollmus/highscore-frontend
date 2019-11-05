@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/highscore-frontend
     docker:
       - image: circleCi/node:12-browsers
     steps:
