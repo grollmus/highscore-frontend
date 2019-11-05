@@ -3,7 +3,7 @@
     <div class="cell">
       <h1 class="text-center">
         <i class="nes-logo"></i>
-        Grollmus Highscore
+        Grollmus Highscore <span *ngIf="isLoggedIn">yolo</span>
         <i class="snes-jp-logo" (click)="loginDialog.showModal()"></i>
       </h1>
     </div>
@@ -15,18 +15,24 @@
     <p class="title">Login</p>
     <div class="nes-field">
       <label for="username">Username</label>
-      <input type="text" id="username" class="nes-input" />
+      <input #email type="email" id="username" class="nes-input" />
     </div>
     <div class="nes-field">
       <label for="password">Password</label>
-      <input type="password" id="password" class="nes-input" />
+      <input #password type="password" id="password" class="nes-input" />
     </div>
     <menu class="dialog-menu">
       <button class="nes-btn" type="reset" (click)="loginDialog.close()">
         Cancel
       </button>
       &nbsp;
-      <button class="nes-btn is-primary" type="submit">Confirm</button>
+      <button
+        class="nes-btn is-primary"
+        type="submit"
+        (click)="auth(email.value, password.value)"
+      >
+        Confirm
+      </button>
     </menu>
   </form>
 </dialog>

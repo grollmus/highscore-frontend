@@ -8,10 +8,17 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HighscoreComponent } from './components/highscore/highscore.component';
 import { ControlsComponent } from './components/controls/controls.component';
 import { PlayerService } from './services/player.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS
+} from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { IndexComponent } from './pages/index/index.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { AuthService } from './services/auth.service';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -21,17 +28,15 @@ import { IndexComponent } from './pages/index/index.component';
     HighscoreComponent,
     ControlsComponent,
     NotFoundComponent,
-    IndexComponent
+    IndexComponent,
+    AdminComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    CommonModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, CommonModule],
   providers: [
-    PlayerService
+    PlayerService,
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
