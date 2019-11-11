@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
     console.log('Heder Component ngOnInit');
     this.loginDialog = document.querySelector('#dialog-login');
     dialogPolyfill.registerDialog(this.loginDialog);
+    this.authService.isExpirationValid();
     this.authService.currentLoginStatus.subscribe(
       status => (this.isLoggedIn = status)
     );

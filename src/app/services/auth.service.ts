@@ -12,6 +12,9 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AuthService {
   private readonly authUrl = environment.api.auth;
+  private readonly expirationPropertyName = 'expires_at';
+  private readonly tokenPropertyName = 'token_id';
+
   currentLoginStatus: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(
@@ -32,24 +35,31 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('token_id');
-    localStorage.removeItem('expires_at');
+    localStorage.removeItem(this.tokenPropertyName);
+    localStorage.removeItem(this.expirationPropertyName);
     this.currentLoginStatus.next(false);
   }
 
   private setSession(jwtResponse: Jwt): void {
     const expiresAt = moment().add(jwtResponse.expiresIn, 'seconds');
-    localStorage.setItem('token_id', jwtResponse.token);
-    localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+    localStorage.setItem(this.tokenPropertyName, jwtResponse.token);
+    localStorage.setItem(
+      this.expirationPropertyName,
+      JSON.stringify(expiresAt.valueOf())
+    );
     this.currentLoginStatus.next(true);
   }
 
   isExpirationValid(): boolean {
-    return moment().isBefore(this.getExpiration());
+    const isValid = moment().isBefore(this.getExpiration());
+    this.currentLoginStatus.next(isValid);
+    return isValid;
   }
 
   private getExpiration(): moment.Moment {
-    const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+    const expiresAt = JSON.parse(
+      localStorage.getItem(this.expirationPropertyName)
+    );
     return moment(expiresAt);
   }
 }
