@@ -1,24 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { HighscoreComponent } from './components/highscore/highscore.component';
-import { ControlsComponent } from './components/controls/controls.component';
-import { PlayerService } from './services/player.service';
+import { AppRoutingModule } from '@app/app-routing.module';
+import { AppComponent } from '@app/app.component';
+import { HeaderComponent } from '@app/components/header/header.component';
+import { FooterComponent } from '@app/components/footer/footer.component';
+import { HighscoreComponent } from '@app/components/highscore/highscore.component';
+import { ControlsComponent } from '@app/components/controls/controls.component';
 import {
   HttpClient,
   HttpClientModule,
   HTTP_INTERCEPTORS
 } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { IndexComponent } from './pages/index/index.component';
-import { AdminComponent } from './pages/admin/admin.component';
-import { AuthService } from './services/auth.service';
-import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { NotFoundComponent } from '@app/pages/not-found/not-found.component';
+import { IndexComponent } from '@app/pages/index/index.component';
+import { AdminComponent } from '@app/pages/admin/admin.component';
+import { AuthService, PlayerService } from '@app/services';
+import { AuthInterceptor, ErrorInterceptor } from '@app/interceptors';
 
 @NgModule({
   declarations: [
@@ -35,7 +34,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
   providers: [
     PlayerService,
     AuthService,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
