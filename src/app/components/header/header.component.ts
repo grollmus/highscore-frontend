@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import * as dialogPolyfill from 'dialog-polyfill/dist/dialog-polyfill';
-import { Auth } from 'src/app/models/auth.interface';
-import { AuthService } from 'src/app/services/auth.service';
+import { Auth } from '@app/models';
+import { AuthService } from '@app/services';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   loginDialog: HTMLDialogElement;
-  isLoggedIn = this.authService.isLoggedIn();
+  isLoggedIn: boolean;
 
   constructor(
     private readonly authService: AuthService,
@@ -19,19 +20,33 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log('Heder Component ngOnInit');
     this.loginDialog = document.querySelector('#dialog-login');
     dialogPolyfill.registerDialog(this.loginDialog);
+    this.authService.currentLoginStatus.subscribe(
+      status => (this.isLoggedIn = status)
+    );
   }
 
-  auth(email: string, password: string) {
+  login(email: string, password: string) {
     const credentials: Auth = { email, password };
     this.authService.login(credentials);
-    this.isLoggedIn = this.authService.isLoggedIn();
   }
 
   logout() {
-    this.authService.logout();
-    this.router.navigate(['']);
-    this.isLoggedIn = false;
+    if (this.isLoggedIn) {
+      this.authService.logout();
+      this.router.navigate(['']);
+      this.isLoggedIn = false;
+    }
+  }
+
+  loginOrRedirectToAdmin() {
+    console.log('loginOrRedirectToAdmiN() this.isLoggedIn', this.isLoggedIn);
+    if (this.isLoggedIn) {
+      this.router.navigate(['admin']);
+    } else {
+      this.loginDialog.showModal();
+    }
   }
 }

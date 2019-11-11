@@ -5,12 +5,15 @@ import { environment } from '../../environments/environment';
 import { Auth } from '../models/auth.interface';
 import { Jwt } from '../models/jwt.interface';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private readonly authUrl = environment.api.auth;
+  currentLoginStatus: BehaviorSubject<boolean> = new BehaviorSubject(false);
+
   constructor(
     private readonly httpClient: HttpClient,
     private readonly router: Router
@@ -31,15 +34,17 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('token_id');
     localStorage.removeItem('expires_at');
+    this.currentLoginStatus.next(false);
   }
 
   private setSession(jwtResponse: Jwt): void {
     const expiresAt = moment().add(jwtResponse.expiresIn, 'seconds');
     localStorage.setItem('token_id', jwtResponse.token);
     localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+    this.currentLoginStatus.next(true);
   }
 
-  isLoggedIn(): boolean {
+  isExpirationValid(): boolean {
     return moment().isBefore(this.getExpiration());
   }
 

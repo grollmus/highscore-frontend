@@ -1,3 +1,5 @@
+@import 'foundation';
+
 $header-background: white !default;
 $header-border-bottom: 0.25rem solid #d5d5d5 !default;
 
@@ -5,11 +7,17 @@ $header-border-bottom: 0.25rem solid #d5d5d5 !default;
   .header {
     background: $header-background;
     border-bottom: $header-border-bottom;
-    padding: 0.5rem;
+    padding: 1rem 1.5rem;
     position: relative;
 
-    i {
-      top: -1rem;
+    h1 {
+      i {
+        display: none;
+        @include breakpoint(medium up) {
+          display: inline-block;
+          margin: 0 1rem;
+        }
+      }
     }
   }
 }

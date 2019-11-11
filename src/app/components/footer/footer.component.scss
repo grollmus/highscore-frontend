@@ -1,11 +1,18 @@
-.footer {
-  padding: 1rem 0;
+$footer-background: white !default;
+$footer-border-top: 0.25rem solid #d5d5d5 !default;
 
-  a {
-    color: white;
-    &:hover,
-    &:focus {
-      text-decoration: none;
+@mixin footer {
+  .footer {
+    padding: 1rem 0;
+    background: $footer-background;
+    border-top: $footer-border-top;
+    a {
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
     }
   }
 }
+
+@include footer;

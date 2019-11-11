@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url('./fonts/PressStart2P-Regular.ttf');
+}
+
+@mixin highscore-global {
+  body {
+    background: url(../assets/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Press Start 2P', cursive;
+
+    @include breakpoint(small down) {
+      font-size: 12px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Press Start 2P', cursive;
+      line-height: 1;
+      margin: 0;
+      padding: 0;
+
+      @include breakpoint(medium down) {
+        font-size: 110%;
+      }
+
+      a {
+        color: inherit;
+        &:hover,
+        &:focus {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

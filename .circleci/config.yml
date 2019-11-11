@@ -29,3 +29,6 @@ jobs:
       # - run:
       #     name: End to End Test
       #     command: npm run e2e -- --protractor-config=e2e/protractor.conf.js
+      - run:
+          name: Production Build
+          command: npm build --prod --aot

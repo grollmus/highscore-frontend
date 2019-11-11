@@ -23,7 +23,10 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": ["src/assets"],
-            "styles": ["src/stylesheets/styles.scss"],
+            "styles": [
+              "node_modules/nes.css/css/nes.css",
+              "src/stylesheets/styles.scss"
+            ],
             "stylePreprocessorOptions": {
               "includePaths": [
                 "node_modules/foundation-sites/scss/",
