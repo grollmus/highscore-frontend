@@ -44,7 +44,7 @@ export class AuthService {
     this.currentLoginStatus.next(true);
   }
 
-  private isLoggedIn(): boolean {
+  isExpirationValid(): boolean {
     return moment().isBefore(this.getExpiration());
   }
 
