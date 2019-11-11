@@ -5,9 +5,9 @@ import {
   HttpTestingController
 } from '@angular/common/http/testing';
 
-import { IndexComponent } from './index.component';
+import { IndexComponent } from '@app/pages';
 import { HighscoreComponent } from './highscore.component';
-import { PlayerService } from '../../services/player.service';
+import { PlayerService } from '@app/services';
 
 describe('IndexComponent', () => {
   let component: IndexComponent;
