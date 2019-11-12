@@ -12,7 +12,6 @@ export class AllPlayersComponent implements OnInit {
   constructor(private readonly playerService: PlayerService) {}
 
   ngOnInit() {
-    console.log('ngOnInit');
     this.playerService.players.subscribe(
       response => (this.players = response),
       error => console.error(error)
