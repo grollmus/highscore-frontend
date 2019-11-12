@@ -10,7 +10,6 @@ import { PlayerService } from '@app/services';
 export class AllPlayersComponent implements OnInit {
   players: Player[];
   constructor(private readonly playerService: PlayerService) {}
-  @Input() isContentHidden = true;
 
   ngOnInit() {
     console.log('ngOnInit');

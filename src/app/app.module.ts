@@ -15,11 +15,8 @@ import {
 import { CommonModule } from '@angular/common';
 import { NotFoundComponent } from '@app/pages/not-found/not-found.component';
 import { IndexComponent } from '@app/pages/index/index.component';
-import { AdminComponent } from '@app/pages/admin/admin.component';
 import { AuthService, PlayerService } from '@app/services';
 import { AuthInterceptor, ErrorInterceptor } from '@app/interceptors';
-import { AllPlayersComponent } from './components/all-players/all-players.component';
-import { AddPlayerComponent } from './components/forms/add-player/add-player.component';
 
 @NgModule({
   declarations: [
@@ -29,10 +26,7 @@ import { AddPlayerComponent } from './components/forms/add-player/add-player.com
     HighscoreComponent,
     ControlsComponent,
     NotFoundComponent,
-    IndexComponent,
-    AdminComponent,
-    AllPlayersComponent,
-    AddPlayerComponent
+    IndexComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, CommonModule],
   providers: [

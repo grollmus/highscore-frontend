@@ -1,1 +1,33 @@
-<p>admin works!</p>
+<div class="grid-container">
+  <div class="grid-x">
+    <div class="cell">
+      <div class="grid-y grid-margin-y">
+        <div class="cell shrink text-justify">
+          <a class="nes-btn is-success" [routerLink]="['/']">Go to Highscore</a>
+          <a
+            class="nes-btn is-primary"
+            [routerLink]="['/admin']"
+            routerLinkActive="router-link-active"
+          >
+            All Players
+          </a>
+          <a
+            class="nes-btn is-primary"
+            [routerLink]="['/admin/add-players']"
+            routerLinkActive="router-link-active"
+            >Add Players</a
+          >
+          <a
+            class="nes-btn is-primary"
+            [routerLink]="['/admin/add-score']"
+            routerLinkActive="router-link-active"
+            >Add Score</a
+          >
+        </div>
+        <div class="cell" style="background: #fff">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
