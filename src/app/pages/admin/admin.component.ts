@@ -8,7 +8,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AdminComponent implements OnInit {
   isHidden = {
-    allPlayers: true
+    allPlayers: true,
+    addPlayer: true
   };
   constructor() {}
 
@@ -16,5 +17,9 @@ export class AdminComponent implements OnInit {
 
   toggleAllPlayers() {
     this.isHidden.allPlayers = !this.isHidden.allPlayers;
+  }
+
+  toggleAddPlayer() {
+    this.isHidden.addPlayer = !this.isHidden.addPlayer;
   }
 }

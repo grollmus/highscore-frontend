@@ -10,11 +10,21 @@
           >
             {{ isHidden.allPlayers ? 'Show' : 'Hide' }} all Players
           </button>
+          <button
+            type="button"
+            class="nes-btn is-primary"
+            (click)="toggleAddPlayer()"
+          >
+            {{ isHidden.addPlayer ? 'Show' : 'Hide' }} add Player
+          </button>
         </div>
         <div class="cell" style="background: #fff">
           <app-all-players
             [isContentHidden]="isHidden.allPlayers"
           ></app-all-players>
+          <app-add-player
+            [isContentHidden]="isHidden.addPlayer"
+          ></app-add-player>
         </div>
       </div>
     </div>
