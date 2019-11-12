@@ -1,9 +1,21 @@
 <div class="grid-container">
   <div class="grid-x">
-    <div class="cell" style="background: #fff">
-      <div class="nes-container with-title is-centered">
-        <p class="title">Controls</p>
-        <app-controls></app-controls>
+    <div class="cell">
+      <div class="grid-y grid-margin-y">
+        <div class="cell shrink">
+          <button
+            type="button"
+            class="nes-btn is-primary"
+            (click)="toggleAllPlayers()"
+          >
+            {{ isHidden.allPlayers ? 'Show' : 'Hide' }} all Players
+          </button>
+        </div>
+        <div class="cell" style="background: #fff">
+          <app-all-players
+            [isContentHidden]="isHidden.allPlayers"
+          ></app-all-players>
+        </div>
       </div>
     </div>
   </div>

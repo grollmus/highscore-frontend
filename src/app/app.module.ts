@@ -18,6 +18,8 @@ import { IndexComponent } from '@app/pages/index/index.component';
 import { AdminComponent } from '@app/pages/admin/admin.component';
 import { AuthService, PlayerService } from '@app/services';
 import { AuthInterceptor, ErrorInterceptor } from '@app/interceptors';
+import { AllPlayersComponent } from './components/all-players/all-players.component';
+import { AddPlayerComponent } from './components/forms/add-player/add-player.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { AuthInterceptor, ErrorInterceptor } from '@app/interceptors';
     ControlsComponent,
     NotFoundComponent,
     IndexComponent,
-    AdminComponent
+    AdminComponent,
+    AllPlayersComponent,
+    AddPlayerComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, CommonModule],
   providers: [
