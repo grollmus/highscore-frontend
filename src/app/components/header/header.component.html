@@ -3,7 +3,7 @@
     <div class="cell text-center">
       <h1>
         <i class="nes-logo" (click)="logout()"></i>
-        <a routerLink="/">Grollmus Highscore</a>
+        <a routerLink="/">{{ appTitle }}</a>
         <i class="snes-jp-logo" (click)="loginOrRedirectToAdmin()"></i>
       </h1>
       <span *ngIf="isLoggedIn" class="nes-text is-success">
