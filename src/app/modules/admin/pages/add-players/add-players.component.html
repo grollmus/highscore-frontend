@@ -1,7 +1,40 @@
-<div class="nes-container with-title is-centered">
+<div class="nes-container with-title">
   <p class="title">Add Players</p>
-  <div class="nes-field">
-    <label for="name_field">Your name</label>
-    <input type="text" id="name_field" class="nes-input" />
-  </div>
+
+  <form [formGroup]="addPlayerNamesForm" (submit)="submitPlayerNames($event)">
+    <div class="nes-field">
+      <label for="name_field">Player names, use ',' for multi input.</label>
+      <input
+        type="text"
+        id="name_field"
+        class="uppercase nes-input"
+        formControlName="playerNames"
+        #playerNames
+        (input)="validatePlayerNames(playerNames.value)"
+      />
+    </div>
+    <div class="text-right">
+      <button
+        class="nes-btn is-full"
+        [ngClass]="{
+          'is-success ': this.isSubmitValid,
+          'is-disabled': !this.isSubmitValid
+        }"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+
+  <p [hidden]="validatedPlayersToAdd.getValue().length <= 0">
+    Players to add:
+    <span
+      *ngFor="let player of validatedPlayersToAdd.getValue()"
+      class="nes-text"
+      [ngClass]="{ 'is-success': player.isValid, 'is-error': !player.isValid }"
+    >
+      {{ player.name }}
+    </span>
+  </p>
 </div>

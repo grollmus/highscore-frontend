@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '@env/environment';
 import { Player } from '@app/models';
+import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class PlayerService {
@@ -21,22 +22,18 @@ export class PlayerService {
     return this.httpClient.get(this.playersApiUrl);
   }
 
+  getPlayerNames() {
+    return this.httpClient.get(`${this.playersApiUrl}/names`);
+  }
+
   fetchAllPlayers() {
     this.httpClient.get<Player[]>(this.apiUrl).subscribe(response => {
       this.playerSubject.next(response);
     });
   }
 
-  addPlayer(name: string) {
-    this.httpClient
-      .post<Player>(this.apiUrl, {
-        name
-      })
-      .subscribe(p => {
-        const newPlayers = this.playerSubject.value;
-        newPlayers.push(p);
-        this.playerSubject.next(newPlayers);
-      });
+  addPlayers(names: any): Observable<any> {
+    return this.httpClient.post(this.playersApiUrl, names);
   }
 
   addScore(playerId: string, reason: string, score: number) {

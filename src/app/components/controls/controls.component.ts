@@ -15,7 +15,7 @@ export class ControlsComponent implements OnInit {
   constructor(private playerService: PlayerService) {}
 
   addPlayer(name: string) {
-    this.playerService.addPlayer(name);
+    // this.playerService.addPlayer(name);
   }
 
   deletePlayer(playerId: string) {
