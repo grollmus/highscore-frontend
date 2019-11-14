@@ -15,6 +15,13 @@
       font-size: 12px;
     }
 
+    input {
+      &:focus,
+      &:active {
+        outline: none;
+      }
+    }
+
     h1,
     h2,
     h3,
