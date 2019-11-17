@@ -11,10 +11,6 @@
     <tbody>
       <tr *ngFor="let player of players; index as i">
         <td>
-          <i
-            *ngIf="i === 0 && player.totalScore > 0"
-            class="nes-icon trophy is-small"
-          ></i>
           {{ player.name }}
         </td>
         <td class="text-right">
