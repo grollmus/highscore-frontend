@@ -1,1 +1,20 @@
-<p>add-score works!</p>
+<div class="nes-container with-title">
+  <p class="title">Add Score</p>
+
+  <div>
+    <a
+      *ngFor="let player of existingPlayerNames"
+      class="nes-badge mr"
+      (click)="togglePlayer(player)"
+    >
+      <span
+        [ngClass]="{
+          'is-dark': !selectedPlayerNames.includes(player),
+          'is-success': selectedPlayerNames.includes(player)
+        }"
+      >
+        {{ player }}
+      </span>
+    </a>
+  </div>
+</div>
