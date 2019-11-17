@@ -49,6 +49,7 @@ export class AllPlayersComponent implements OnInit {
         if (res) {
           this.playerService.fetchAllPlayers();
           this.deleteDialog.close();
+          this.deletePlayerForm.reset();
         }
       },
       err => console.error(err)
