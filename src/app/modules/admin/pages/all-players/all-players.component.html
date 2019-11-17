@@ -44,7 +44,11 @@
 </div>
 
 <dialog class="nes-dialog" id="delete-dialog">
-  <form [formGroup]="deletePlayerForm" method="dialog">
+  <form
+    [formGroup]="deletePlayerForm"
+    method="dialog"
+    (submit)="submitDeletePlayer()"
+  >
     <p class="title nes-text is-error">
       Delete
       {{ selectedPlayterToDelete ? selectedPlayterToDelete.name : '[noBody]' }}

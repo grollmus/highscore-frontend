@@ -42,4 +42,24 @@ export class AllPlayersComponent implements OnInit {
   getPlayer(id: string): Player {
     return this.players.find(player => player._id === id);
   }
+
+  deletePlayer(id): void {
+    this.playerService.deletePlayer(id).subscribe(
+      res => {
+        if (res) {
+          this.playerService.fetchAllPlayers();
+          this.deleteDialog.close();
+        }
+      },
+      err => console.error(err)
+    );
+  }
+
+  submitDeletePlayer(): void {
+    const { answer } = this.deletePlayerForm.value;
+    if (answer === 'no' && this.selectedPlayterToDelete) {
+      return;
+    }
+    this.deletePlayer(this.selectedPlayterToDelete._id);
+  }
 }
