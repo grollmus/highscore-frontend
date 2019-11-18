@@ -24,16 +24,6 @@ export class AddScoreComponent implements OnInit {
 
   ngOnInit() {
     this.getPlayerNames();
-    this.addScoreForm.valueChanges.subscribe(
-      value =>
-        console.log(
-          value,
-          this.addScoreForm.status,
-          this.addScoreForm.valid,
-          this.addScoreForm.invalid
-        ),
-      err => console.error(err)
-    );
   }
 
   getPlayerNames(): void {
@@ -56,7 +46,21 @@ export class AddScoreComponent implements OnInit {
 
   submitScore() {
     if (this.addScoreForm.valid) {
-      'asdf';
+      this.selectedPlayerNames.forEach(player => {
+        this.playerService
+          .addScore(
+            player,
+            this.addScoreForm.value.reason,
+            this.addScoreForm.value.score
+          )
+          .subscribe(
+            res => {
+              this.selectedPlayerNames = [];
+              this.addScoreForm.reset();
+            },
+            err => console.error(err)
+          );
+      });
     }
   }
 }

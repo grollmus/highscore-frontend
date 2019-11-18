@@ -37,17 +37,10 @@ export class PlayerService {
   }
 
   addScore(playerId: string, reason: string, score: number) {
-    this.httpClient
-      .post<Player>(`${this.apiUrl}/${playerId}/scores`, {
-        score,
-        reason
-      })
-      .subscribe(p => {
-        const players = this.playerSubject.value;
-        const updatePlayer = players.findIndex(player => player._id === p._id);
-        players[updatePlayer] = p;
-        this.playerSubject.next(players);
-      });
+    return this.httpClient.post<Player>(`${this.apiUrl}/${playerId}/scores`, {
+      score,
+      reason
+    });
   }
 
   deletePlayer(playerId: string) {
