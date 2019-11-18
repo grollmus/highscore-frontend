@@ -3,12 +3,13 @@
 
   <form [formGroup]="addPlayerNamesForm" (submit)="submitPlayerNames($event)">
     <div class="nes-field">
-      <label for="name_field">Player names, use ',' for multi input.</label>
+      <label for="name_field">Playernames</label>
       <input
         type="text"
         id="name_field"
         class="uppercase nes-input"
         formControlName="playerNames"
+        placeholder="AAA, BBB, CCC, DDD, EEE, FFF"
         #playerNames
         (input)="validatePlayerNames(playerNames.value)"
       />
