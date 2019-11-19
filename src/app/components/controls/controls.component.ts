@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import * as dialogPolyfill from 'dialog-polyfill/dist/dialog-polyfill';
+import dialogPolyfill from 'dialog-polyfill';
 import { PlayerService } from '../../services/player.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class ControlsComponent implements OnInit {
   constructor(private playerService: PlayerService) {}
 
   addPlayer(name: string) {
-    this.playerService.addPlayer(name);
+    // this.playerService.addPlayer(name);
   }
 
   deletePlayer(playerId: string) {

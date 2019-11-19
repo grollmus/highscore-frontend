@@ -41,7 +41,6 @@ export class AppComponent {
   ];
 
   openModal(reavelId: string) {
-    console.log('openModal', reavelId);
     this.reavelIsActive = reavelId;
     this.reavelContainerHidden = false;
     this.reavelsToHide[reavelId] = false;

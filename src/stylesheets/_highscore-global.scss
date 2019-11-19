@@ -15,6 +15,13 @@
       font-size: 12px;
     }
 
+    input {
+      &:focus,
+      &:active {
+        outline: none;
+      }
+    }
+
     h1,
     h2,
     h3,
@@ -38,5 +45,18 @@
         }
       }
     }
+  }
+
+  menu {
+    padding-inline-start: unset;
+  }
+
+  .table-full-width {
+    width: 100%;
+  }
+
+  .is-full {
+    width: 100%;
+    margin-top: 1rem;
   }
 }

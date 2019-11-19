@@ -15,7 +15,6 @@ import {
 import { CommonModule } from '@angular/common';
 import { NotFoundComponent } from '@app/pages/not-found/not-found.component';
 import { IndexComponent } from '@app/pages/index/index.component';
-import { AdminComponent } from '@app/pages/admin/admin.component';
 import { AuthService, PlayerService } from '@app/services';
 import { AuthInterceptor, ErrorInterceptor } from '@app/interceptors';
 
@@ -27,8 +26,7 @@ import { AuthInterceptor, ErrorInterceptor } from '@app/interceptors';
     HighscoreComponent,
     ControlsComponent,
     NotFoundComponent,
-    IndexComponent,
-    AdminComponent
+    IndexComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, CommonModule],
   providers: [

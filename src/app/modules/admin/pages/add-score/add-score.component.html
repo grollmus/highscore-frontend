@@ -1,0 +1,59 @@
+<div class="nes-container with-title">
+  <p class="title">Add Score</p>
+
+  <div>
+    <a
+      *ngFor="let player of existingPlayerNames"
+      class="nes-badge mr"
+      (click)="togglePlayer(player)"
+    >
+      <span
+        [ngClass]="{
+          'is-dark': !selectedPlayerNames.includes(player),
+          'is-success': selectedPlayerNames.includes(player)
+        }"
+      >
+        {{ player }}
+      </span>
+    </a>
+  </div>
+
+  <form [formGroup]="addScoreForm" (submit)="submitScore()">
+    <div class="nes-field">
+      <label for="reason">Reason</label>
+      <input
+        type="text"
+        id="reason"
+        formControlName="reason"
+        class="nes-input"
+        placeholder="Awesome Highscore-Board, so much WOW!"
+        required
+      />
+    </div>
+    <div class="nes-field">
+      <label for="score">Score</label>
+      <input
+        type="number"
+        id="score"
+        class="nes-input"
+        formControlName="score"
+        placeholder="5000"
+        required
+      />
+    </div>
+
+    <div>
+      <button
+        class="nes-btn is-full"
+        [ngClass]="{
+          'is-disabled':
+            selectedPlayerNames.length <= 0 || addScoreForm.invalid,
+          'is-success': selectedPlayerNames.length > 0 && addScoreForm.valid
+        }"
+        [disabled]="selectedPlayerNames.length <= 0 && addScoreForm.invalid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

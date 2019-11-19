@@ -1,0 +1,100 @@
+<div class="nes-container with-title">
+  <p class="title">All Players</p>
+  <table class="nes-table is-bordered is-centered table-full-width">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Score</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of players; index as i">
+        <td>
+          {{ player.name }}
+        </td>
+        <td class="text-right">
+          {{ player.totalScore | number }}
+        </td>
+        <td class="text-right">
+          <button
+            class="nes-btn is-error"
+            (click)="openDeleteDialog(player._id)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+
+      <tr *ngIf="players.length <= 0">
+        <td class="nes-text is-error text-center" colspan="3">
+          <i class="nes-kirby"></i><br />
+          No Players added
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<dialog class="nes-dialog" id="delete-dialog">
+  <form
+    [formGroup]="deletePlayerForm"
+    method="dialog"
+    (submit)="submitDeletePlayer()"
+  >
+    <p class="title nes-text is-error">
+      Delete
+      {{ selectedPlayterToDelete ? selectedPlayterToDelete.name : '[noBody]' }}
+    </p>
+    <p>Are you sure?</p>
+    <div>
+      <label>
+        <input
+          formControlName="answer"
+          type="radio"
+          class="nes-radio"
+          name="answer"
+          value="yes"
+        />
+        <span>Yes</span>
+      </label>
+      <br />
+      <label>
+        <input
+          formControlName="answer"
+          type="radio"
+          class="nes-radio"
+          name="answer"
+          value="no"
+        />
+        <span>No</span>
+      </label>
+    </div>
+    <menu class="dialog-menu">
+      <div class="grid-x grid-padding-x">
+        <div class="cell-auto">
+          <button
+            class="nes-btn"
+            (click)="this.deleteDialog.close()"
+            type="reset"
+          >
+            Cancel
+          </button>
+        </div>
+        <div class="cell-auto">
+          <button
+            [ngClass]="{
+              'is-primary': deletePlayerForm.valid,
+              'is-disabled': !deletePlayerForm.valid
+            }"
+            [disabled]="!deletePlayerForm.valid"
+            class="nes-btn"
+            type="submit"
+          >
+            Confirm
+          </button>
+        </div>
+      </div>
+    </menu>
+  </form>
+</dialog>

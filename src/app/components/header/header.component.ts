@@ -4,6 +4,7 @@ import { Auth } from '@app/models';
 import { AuthService } from '@app/services';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { environment } from '@env/environment';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +12,7 @@ import { Subject } from 'rxjs';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  appTitle = environment.app.title;
   loginDialog: HTMLDialogElement;
   isLoggedIn: boolean;
 
@@ -20,7 +22,6 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log('Heder Component ngOnInit');
     this.loginDialog = document.querySelector('#dialog-login');
     dialogPolyfill.registerDialog(this.loginDialog);
     this.authService.isExpirationValid();
@@ -43,7 +44,6 @@ export class HeaderComponent implements OnInit {
   }
 
   loginOrRedirectToAdmin() {
-    console.log('loginOrRedirectToAdmiN() this.isLoggedIn', this.isLoggedIn);
     if (this.isLoggedIn) {
       this.router.navigate(['admin']);
     } else {
