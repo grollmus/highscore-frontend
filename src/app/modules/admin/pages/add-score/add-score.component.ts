@@ -33,7 +33,6 @@ export class AddScoreComponent implements OnInit {
   }
 
   togglePlayer(player: string) {
-    console.log('form', this.addScoreForm.valid, this.addScoreForm.invalid);
     if (this.selectedPlayerNames.includes(player)) {
       const index = this.selectedPlayerNames.indexOf(player, 0);
       if (index > -1) {

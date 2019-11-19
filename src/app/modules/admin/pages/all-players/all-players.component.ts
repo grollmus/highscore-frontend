@@ -35,8 +35,6 @@ export class AllPlayersComponent implements OnInit {
     this.selectedPlayterToDelete = this.getPlayer(id);
 
     this.deleteDialog.showModal();
-    console.log('id', id);
-    console.log('player', this.selectedPlayterToDelete);
   }
 
   getPlayer(id: string): Player {

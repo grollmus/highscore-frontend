@@ -22,7 +22,6 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log('Heder Component ngOnInit');
     this.loginDialog = document.querySelector('#dialog-login');
     dialogPolyfill.registerDialog(this.loginDialog);
     this.authService.isExpirationValid();
@@ -45,7 +44,6 @@ export class HeaderComponent implements OnInit {
   }
 
   loginOrRedirectToAdmin() {
-    console.log('loginOrRedirectToAdmiN() this.isLoggedIn', this.isLoggedIn);
     if (this.isLoggedIn) {
       this.router.navigate(['admin']);
     } else {
