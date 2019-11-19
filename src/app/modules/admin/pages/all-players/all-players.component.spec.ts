@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AllPlayersComponent } from './all-players.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PlayerService } from '@app/services';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('AllPlayersComponent', () => {
   let component: AllPlayersComponent;
@@ -8,9 +11,10 @@ describe('AllPlayersComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AllPlayersComponent ]
-    })
-    .compileComponents();
+      declarations: [AllPlayersComponent],
+      providers: [PlayerService],
+      imports: [ReactiveFormsModule, HttpClientTestingModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { AdminComponent } from './admin.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('AdminComponent', () => {
   let component: AdminComponent;
@@ -8,9 +10,9 @@ describe('AdminComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminComponent ]
-    })
-    .compileComponents();
+      declarations: [AdminComponent],
+      imports: [ReactiveFormsModule, RouterTestingModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
