@@ -1,0 +1,10 @@
+.highscore-menu {
+  margin-bottom: 1rem;
+
+  a {
+    margin-right: 1rem;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

@@ -1,9 +1,9 @@
 <div class="grid-container">
   <div class="grid-x">
     <div class="cell">
-      <div class="grid-y grid-margin-y">
+      <div class="grid-y">
         <div class="cell shrink">
-          <nav class="grid-x">
+          <nav class="grid-x highscore-menu">
             <div class="cell shrink">
               <a class="nes-btn is-success" [routerLink]="['/']">
                 << Go to Highscore
@@ -17,14 +17,12 @@
               >
                 All Players
               </a>
-              &nbsp;
               <a
                 class="nes-btn is-primary"
                 [routerLink]="['/admin/add-players']"
                 routerLinkActive="router-link-active"
                 >Add Players
               </a>
-              &nbsp;
               <a
                 class="nes-btn is-primary"
                 [routerLink]="['/admin/add-score']"
