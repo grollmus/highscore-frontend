@@ -6,7 +6,6 @@ import { AppComponent } from '@app/app.component';
 import { HeaderComponent } from '@app/components/header/header.component';
 import { FooterComponent } from '@app/components/footer/footer.component';
 import { HighscoreComponent } from '@app/components/highscore/highscore.component';
-import { ControlsComponent } from '@app/components/controls/controls.component';
 import {
   HttpClient,
   HttpClientModule,
@@ -17,6 +16,7 @@ import { NotFoundComponent } from '@app/pages/not-found/not-found.component';
 import { IndexComponent } from '@app/pages/index/index.component';
 import { AuthService, PlayerService } from '@app/services';
 import { AuthInterceptor, ErrorInterceptor } from '@app/interceptors';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,11 +24,16 @@ import { AuthInterceptor, ErrorInterceptor } from '@app/interceptors';
     HeaderComponent,
     FooterComponent,
     HighscoreComponent,
-    ControlsComponent,
     NotFoundComponent,
     IndexComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, CommonModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    CommonModule,
+    ReactiveFormsModule
+  ],
   providers: [
     PlayerService,
     AuthService,

@@ -22,8 +22,8 @@ export class AuthService {
     private readonly router: Router
   ) {}
 
-  login(loginData: Auth): void {
-    this.httpClient.post(this.authUrl, loginData).subscribe(
+  login(loginData: Auth): any {
+    return this.httpClient.post(this.authUrl, loginData).subscribe(
       (res: Jwt) => {
         this.setSession(res);
         this.router.navigate(['admin']);

@@ -14,15 +14,25 @@
 </header>
 
 <dialog class="nes-dialog" id="dialog-login" #addLoginDialog>
-  <form method="dialog">
+  <form method="dialog" [formGroup]="loginForm" (submit)="submitLogin()">
     <p class="title">Login</p>
     <div class="nes-field">
-      <label for="username">Username</label>
-      <input #email type="email" id="username" class="nes-input" />
+      <label for="email">Email</label>
+      <input
+        formControlName="email"
+        type="email"
+        id="email"
+        class="nes-input"
+      />
     </div>
     <div class="nes-field">
       <label for="password">Password</label>
-      <input #password type="password" id="password" class="nes-input" />
+      <input
+        formControlName="password"
+        type="password"
+        id="password"
+        class="nes-input"
+      />
     </div>
     <menu class="dialog-menu">
       <div class="grid-x">
@@ -32,11 +42,7 @@
           </button>
         </div>
         <div class="cell auto text-right">
-          <button
-            class="nes-btn is-primary"
-            type="submit"
-            (click)="login(email.value, password.value)"
-          >
+          <button class="nes-btn is-primary" type="submit">
             Confirm
           </button>
         </div>

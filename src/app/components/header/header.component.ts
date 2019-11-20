@@ -5,6 +5,7 @@ import { AuthService } from '@app/services';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { environment } from '@env/environment';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +15,10 @@ import { environment } from '@env/environment';
 export class HeaderComponent implements OnInit {
   appTitle = environment.app.title;
   loginDialog: HTMLDialogElement;
+  loginForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', Validators.required)
+  });
   isLoggedIn: boolean;
 
   constructor(
@@ -25,12 +30,15 @@ export class HeaderComponent implements OnInit {
     this.loginDialog = document.querySelector('#dialog-login');
     dialogPolyfill.registerDialog(this.loginDialog);
     this.authService.isExpirationValid();
-    this.authService.currentLoginStatus.subscribe(
-      status => (this.isLoggedIn = status)
-    );
+    this.authService.currentLoginStatus.subscribe(status => {
+      this.isLoggedIn = status;
+      if (status) {
+        this.loginDialog.close();
+      }
+    });
   }
 
-  login(email: string, password: string) {
+  private login(email: string, password: string) {
     const credentials: Auth = { email, password };
     this.authService.login(credentials);
   }
@@ -48,6 +56,14 @@ export class HeaderComponent implements OnInit {
       this.router.navigate(['admin']);
     } else {
       this.loginDialog.showModal();
+    }
+  }
+
+  submitLogin() {
+    console.log('submit');
+    if (this.loginForm.valid) {
+      const { email, password } = this.loginForm.value;
+      this.login(email, password);
     }
   }
 }
