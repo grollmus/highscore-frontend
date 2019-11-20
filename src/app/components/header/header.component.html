@@ -25,17 +25,22 @@
       <input #password type="password" id="password" class="nes-input" />
     </div>
     <menu class="dialog-menu">
-      <button class="nes-btn" type="reset" (click)="loginDialog.close()">
-        Cancel
-      </button>
-      &nbsp;
-      <button
-        class="nes-btn is-primary"
-        type="submit"
-        (click)="login(email.value, password.value)"
-      >
-        Confirm
-      </button>
+      <div class="grid-x">
+        <div class="cell auto">
+          <button class="nes-btn" type="reset" (click)="loginDialog.close()">
+            Cancel
+          </button>
+        </div>
+        <div class="cell auto text-right">
+          <button
+            class="nes-btn is-primary"
+            type="submit"
+            (click)="login(email.value, password.value)"
+          >
+            Confirm
+          </button>
+        </div>
+      </div>
     </menu>
   </form>
 </dialog>
