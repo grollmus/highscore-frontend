@@ -1,5 +1,6 @@
 export const environment = {
   production: false,
+  demo: false,
   app: {
     title: 'Unicorn Highscore'
   },
