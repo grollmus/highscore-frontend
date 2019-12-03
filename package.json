@@ -12,6 +12,7 @@
   "scripts": {
     "ng": "ng",
     "dev": "ng serve",
+    "dev:demo": "ng serve --configuration=demo",
     "dev:live-backend": "ng serve --configuration=production",
     "build": "ng build --prod --aot",
     "test": "ng test",
