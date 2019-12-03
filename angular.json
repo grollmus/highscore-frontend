@@ -66,6 +66,10 @@
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.demo.ts"
+                },
+                {
+                  "replace": "src/app/services/auth.service.ts",
+                  "with": "src/app/services/auth-demo.service.ts"
                 }
               ],
               "optimization": true,
