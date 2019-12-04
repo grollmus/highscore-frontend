@@ -14,22 +14,39 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let player of players; index as i">
-        <td>
-          {{ player.name }}
-        </td>
-        <td class="text-right">
-          {{ player.totalScore | number }}
-        </td>
-        <td class="text-right">
-          <button
-            class="nes-btn is-error"
-            (click)="openDeleteDialog(player._id)"
-          >
-            Delete
-          </button>
-        </td>
-      </tr>
+      <ng-container
+        *ngFor="let player of players; index as i"
+        #scoreIsHidden="appShowScore"
+        appShowScore="true"
+      >
+        <tr>
+          <td>
+            {{ player.name }}
+          </td>
+          <td class="text-right">
+            {{ player.totalScore | number }}
+          </td>
+          <td class="text-right">
+            <button
+              class="nes-btn is-primary"
+              (click)="scoreIsHidden.appShowScore = !scoreIsHidden.appShowScore"
+            >
+              Score
+            </button>
+            <button
+              class="nes-btn is-error"
+              (click)="openDeleteDialog(player._id)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+        <tr [hidden]="scoreIsHidden.appShowScore">
+          <td colspan="3">
+            wat?
+          </td>
+        </tr>
+      </ng-container>
 
       <tr *ngIf="players.length <= 0">
         <td class="nes-text is-error text-center" colspan="3">

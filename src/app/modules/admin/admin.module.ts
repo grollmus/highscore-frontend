@@ -7,9 +7,16 @@ import { AllPlayersComponent } from './pages/all-players/all-players.component';
 import { AddPlayersComponent } from './pages/add-players/add-players.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddScoreComponent } from './pages/add-score/add-score.component';
+import { ShowScoreDirective } from './show-score.directive';
 
 @NgModule({
-  declarations: [AdminComponent, AllPlayersComponent, AddPlayersComponent, AddScoreComponent],
+  declarations: [
+    AdminComponent,
+    AllPlayersComponent,
+    AddPlayersComponent,
+    AddScoreComponent,
+    ShowScoreDirective
+  ],
   imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule]
 })
 export class AdminModule {}
