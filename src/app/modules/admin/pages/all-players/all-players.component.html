@@ -43,7 +43,22 @@
         </tr>
         <tr [hidden]="scoreIsHidden.appShowScore">
           <td colspan="3">
-            wat?
+            <table>
+              <thead>
+                <tr>
+                  <th>Score</th>
+                  <th>Reason</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let score of player.scores">
+                  <td>{{ score.score }}</td>
+                  <td>{{ score.reason }}</td>
+                  <td>{{ score.dateCreated }}</td>
+                </tr>
+              </tbody>
+            </table>
           </td>
         </tr>
       </ng-container>
