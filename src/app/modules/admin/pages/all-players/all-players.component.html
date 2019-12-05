@@ -16,8 +16,8 @@
     <tbody>
       <ng-container
         *ngFor="let player of players; index as i"
-        #scoreIsHidden="appShowScore"
-        appShowScore="true"
+        #scoreIsHidden="appValue"
+        appValue="true"
       >
         <tr>
           <td>
@@ -27,38 +27,24 @@
             {{ player.totalScore | number }}
           </td>
           <td class="text-right">
-            <button
+            <a
               class="nes-btn is-primary"
-              (click)="scoreIsHidden.appShowScore = !scoreIsHidden.appShowScore"
+              (click)="scoreIsHidden.appValue = !scoreIsHidden.appValue"
             >
               Score
-            </button>
-            <button
-              class="nes-btn is-error"
-              (click)="openDeleteDialog(player._id)"
-            >
+            </a>
+            <a class="nes-btn is-error" (click)="openDeleteDialog(player._id)">
               Delete
-            </button>
+            </a>
           </td>
         </tr>
-        <tr [hidden]="scoreIsHidden.appShowScore">
+        <tr [hidden]="scoreIsHidden.appValue">
           <td colspan="3">
-            <table>
-              <thead>
-                <tr>
-                  <th>Score</th>
-                  <th>Reason</th>
-                  <th>Date</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let score of player.scores">
-                  <td>{{ score.score }}</td>
-                  <td>{{ score.reason }}</td>
-                  <td>{{ score.dateCreated }}</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="grid-x" *ngFor="let score of player.scores">
+              <div class="cell auto">{{ score.score }}</div>
+              <div class="cell auto">{{ score.reason }}</div>
+              <div class="cell auto">{{ score.dateCreated | date }}</div>
+            </div>
           </td>
         </tr>
       </ng-container>
