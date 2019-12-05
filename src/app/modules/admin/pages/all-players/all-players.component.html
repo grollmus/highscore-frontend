@@ -27,23 +27,26 @@
             {{ player.totalScore | number }}
           </td>
           <td class="text-right">
-            <a
-              class="nes-btn is-primary"
+            [<a
+              class="show"
               (click)="scoreIsHidden.appValue = !scoreIsHidden.appValue"
             >
-              Score
-            </a>
-            <a class="nes-btn is-error" (click)="openDeleteDialog(player._id)">
-              Delete
-            </a>
+              Score </a
+            >] [<a class="remove" (click)="openDeleteDialog(player._id)">
+              Delete </a
+            >]
           </td>
         </tr>
         <tr [hidden]="scoreIsHidden.appValue">
           <td colspan="3">
-            <div class="grid-x" *ngFor="let score of player.scores">
+            <div
+              class="grid-x highlight-row"
+              *ngFor="let score of player.scores"
+            >
               <div class="cell auto">{{ score.score }}</div>
               <div class="cell auto">{{ score.reason }}</div>
               <div class="cell auto">{{ score.dateCreated | date }}</div>
+              <div class="cellt auto">[<a class="remove">X</a>]</div>
             </div>
           </td>
         </tr>
