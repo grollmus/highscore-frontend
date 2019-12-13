@@ -5,6 +5,7 @@ import { AllPlayersComponent } from './all-players.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PlayerService } from '@app/services';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AppValueDirective } from '../../value.directive';
 
 describe('AllPlayersComponent', () => {
   let component: AllPlayersComponent;
@@ -12,7 +13,7 @@ describe('AllPlayersComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AllPlayersComponent],
+      declarations: [AllPlayersComponent, AppValueDirective],
       providers: [PlayerService],
       imports: [
         ReactiveFormsModule,

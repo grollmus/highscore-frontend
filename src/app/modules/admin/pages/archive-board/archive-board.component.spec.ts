@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ArchiveBoardComponent } from './archive-board.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ArchiveBoardComponent', () => {
   let component: ArchiveBoardComponent;
@@ -8,7 +10,8 @@ describe('ArchiveBoardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ArchiveBoardComponent]
+      declarations: [ArchiveBoardComponent],
+      imports: [ReactiveFormsModule, HttpClientTestingModule]
     }).compileComponents();
   }));
 
