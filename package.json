@@ -35,7 +35,7 @@
     "foundation-sites": "^6.6.1",
     "moment": "^2.24.0",
     "nes.css": "^2.3.0",
-    "rxjs": "~6.5.2",
+    "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
