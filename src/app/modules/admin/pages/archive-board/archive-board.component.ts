@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ArchiveService } from '@app/services/archive.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-archive-board',
@@ -17,7 +18,10 @@ export class ArchiveBoardComponent implements OnInit {
     ])
   });
 
-  constructor(private readonly archiveService: ArchiveService) {}
+  constructor(
+    private readonly archiveService: ArchiveService,
+    private readonly router: Router
+  ) {}
 
   ngOnInit() {}
 
@@ -26,7 +30,8 @@ export class ArchiveBoardComponent implements OnInit {
       .archiveBoard(this.archiveBoard.value.name, this.archiveBoard.value.year)
       .subscribe(
         res => {
-          console.log('boom');
+          console.log('boom', res);
+          this.router.navigate(['admin']);
         },
         err => console.error(err)
       );
