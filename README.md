@@ -11,7 +11,12 @@
 
 > Frontend for the Grollmus Highscore-Board to count Creative-Day points.
 
-### ✨ [Demo](http://demo.demo.com)
+## Demo
+
+### ✨ [Demo](https://highscore-demo.grollmus.rocks)
+
+- SNES Controller -> Login
+- NES Controller -> Logout
 
 ## Install
 
@@ -24,6 +29,11 @@ npm install
 ```sh
 npm run dev
 ```
+
+## Git Hooks
+
+- Pre-Commit: Use prettier on all changed files and ng lint
+- Pre-Push: Runs all tests
 
 ## Author
 

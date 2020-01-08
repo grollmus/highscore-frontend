@@ -1,12 +1,21 @@
 <footer class="footer">
   <section class="grid-x">
     <div class="cell text-center">
+      <a
+        class="archive"
+        *ngFor="let archive of archives"
+        [routerLink]="['archive', archive._id]"
+        title="{{ archive.name }}"
+      >
+        {{ archive.year }}
+      </a>
+    </div>
+  </section>
+  <section class="grid-x">
+    <div class="cell text-center">
       Made with <i class="nes-icon heart is-small"></i>
       |
-      <a
-        href="https://www.grollmus.de/kontakt-meta/impressum.html"
-        target="_blank"
-      >
+      <a href="https://www.grollmus.de/impressum/" target="_blank">
         Imprint
       </a>
       | Version {{ version }}

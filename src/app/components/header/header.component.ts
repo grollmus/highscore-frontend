@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { environment } from '@env/environment';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { CoreEnvironment } from '@angular/compiler/src/compiler_facade_interface';
 
 @Component({
   selector: 'app-header',
@@ -20,6 +21,7 @@ export class HeaderComponent implements OnInit {
     password: new FormControl('', Validators.required)
   });
   isLoggedIn: boolean;
+  isDemo = environment.demo;
 
   constructor(
     private readonly authService: AuthService,

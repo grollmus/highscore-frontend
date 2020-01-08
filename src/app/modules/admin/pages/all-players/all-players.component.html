@@ -1,5 +1,8 @@
 <div class="nes-container with-title">
   <p class="title">All Players</p>
+  <p class="text-right">
+    [<a class="archive" [routerLink]="['archive-board']"> Archive Board </a>]
+  </p>
   <table class="nes-table is-bordered is-centered table-full-width">
     <thead>
       <tr>
@@ -9,22 +12,47 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let player of players; index as i">
-        <td>
-          {{ player.name }}
-        </td>
-        <td class="text-right">
-          {{ player.totalScore | number }}
-        </td>
-        <td class="text-right">
-          <button
-            class="nes-btn is-error"
-            (click)="openDeleteDialog(player._id)"
-          >
-            Delete
-          </button>
-        </td>
-      </tr>
+      <ng-container
+        *ngFor="let player of players; index as i"
+        #scoreIsHidden="appValue"
+        appValue="true"
+      >
+        <tr>
+          <td>
+            {{ player.name }}
+          </td>
+          <td class="text-right">
+            {{ player.totalScore | number }}
+          </td>
+          <td class="text-right">
+            [<a
+              class="show"
+              (click)="scoreIsHidden.appValue = !scoreIsHidden.appValue"
+            >
+              Score </a
+            >] [<a class="remove" (click)="openDeleteDialog(player._id)">
+              Delete </a
+            >]
+          </td>
+        </tr>
+        <tr [hidden]="scoreIsHidden.appValue">
+          <td colspan="3">
+            <div
+              class="grid-x highlight-row"
+              *ngFor="let score of player.scores"
+            >
+              <div class="cell auto">{{ score.score }}</div>
+              <div class="cell auto">{{ score.reason }}</div>
+              <div class="cell auto">{{ score.dateCreated | date }}</div>
+              <div class="cellt auto">
+                [<a class="remove" (click)="deleteScore(player._id, score._id)">
+                  X </a
+                >]
+              </div>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
 
       <tr *ngIf="players.length <= 0">
         <td class="nes-text is-error text-center" colspan="3">

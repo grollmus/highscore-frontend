@@ -1,6 +1,6 @@
 {
   "name": "highscore-frontend",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Frontend for the Grollmus Highscore-Board to count Creative-Day points.",
   "author": "Grollmus München GmbH <developers@grollmus.de> (https://www.grollmus.de/)",
   "maintainers": [
@@ -12,6 +12,7 @@
   "scripts": {
     "ng": "ng",
     "dev": "ng serve",
+    "dev:demo": "ng serve --configuration=demo",
     "dev:live-backend": "ng serve --configuration=production",
     "build": "ng build --prod --aot",
     "test": "ng test",
@@ -28,25 +29,27 @@
     "@angular/platform-browser": "^8.2.13",
     "@angular/platform-browser-dynamic": "^8.2.13",
     "@angular/router": "^8.2.13",
-    "core-js": "^3.4.2",
+    "core-js": "^3.6.1",
     "dialog-polyfill": "^0.5.0",
-    "foundation-sites": "^6.5.3",
+    "faker": "^4.1.0",
+    "foundation-sites": "^6.6.1",
     "moment": "^2.24.0",
-    "nes.css": "^2.2.1",
-    "rxjs": "~6.5.2",
+    "nes.css": "^2.3.0",
+    "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.803.19",
-    "@angular-devkit/build-angular": "~0.803.18",
-    "@angular/cli": "^8.3.19",
+    "@angular-devkit/build-angular": "~0.803.21",
+    "@angular/cli": "^8.3.21",
     "@angular/compiler-cli": "^8.2.13",
     "@angular/language-service": "^8.2.14",
+    "@types/faker": "^4.1.8",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.8",
-    "@types/node": "~12.12.14",
-    "codelyzer": "^5.2.0",
+    "@types/node": "~13.1.4",
+    "codelyzer": "^5.2.1",
+    "husky": "^3.1.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "^4.4.1",
@@ -54,9 +57,18 @@
     "karma-coverage-istanbul-reporter": "^2.1.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
     "protractor": "~5.4.0",
     "ts-node": "~8.5.2",
     "tslint": "~5.20.1",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "~3.5.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && npm run lint",
+      "pre-push": "npm test -- --watch=false --browsers=ChromeHeadless"
+    }
   }
 }

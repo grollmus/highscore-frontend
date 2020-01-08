@@ -2,14 +2,12 @@ const apiUrl = 'https://highscore.grollmus.local/api';
 
 export const environment = {
   production: true,
-  demo: false,
+  demo: true,
   app: {
-    title: 'Grollmus Highscore'
+    title: 'Demo Highscore'
   },
   api: {
     players: `${apiUrl}/highscore/players`,
-    auth: `${apiUrl}/auth`,
-    archive: `${apiUrl}/highscore/archive`,
-    score: `${apiUrl}/highscore/score`
+    auth: `${apiUrl}/auth`
   }
 };

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { version } from '../../../../package.json';
+import { ArchiveService } from '@app/services/archive.service.js';
 
 @Component({
   selector: 'app-footer',
@@ -8,8 +9,13 @@ import { version } from '../../../../package.json';
 })
 export class FooterComponent implements OnInit {
   version = version;
+  archives = [];
 
-  constructor() {}
+  constructor(private readonly archiveService: ArchiveService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.archiveService
+      .getArchives()
+      .subscribe((archive: any) => (this.archives = archive));
+  }
 }

@@ -1,10 +1,15 @@
+<section class="demo-info" *ngIf="isDemo">
+  <small>NES: Logout</small>
+  Demo has no real backend.
+  <smalL>SNES: Login</smalL>
+</section>
 <header class="header">
   <div class="grid-x">
     <div class="cell text-center">
       <h1>
-        <i class="nes-logo" (click)="logout()"></i>
+        <a (click)="logout()"><i class="nes-logo"></i></a>
         <a routerLink="/">{{ appTitle }}</a>
-        <i class="snes-jp-logo" (click)="loginOrRedirectToAdmin()"></i>
+        <a (click)="loginOrRedirectToAdmin()"><i class="snes-jp-logo"></i></a>
       </h1>
       <span *ngIf="isLoggedIn" class="nes-text is-success">
         You are Logged-In

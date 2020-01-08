@@ -54,6 +54,20 @@ export class AllPlayersComponent implements OnInit {
     );
   }
 
+  deleteScore(playerId, scoreId) {
+    console.log('deleteScore', playerId, scoreId);
+    this.playerService.deleteScore(playerId, scoreId).subscribe(
+      res => {
+        if (res) {
+          this.playerService.fetchAllPlayers();
+          this.deleteDialog.close();
+          this.deletePlayerForm.reset();
+        }
+      },
+      err => console.error(err)
+    );
+  }
+
   submitDeletePlayer(): void {
     const { answer } = this.deletePlayerForm.value;
     if (answer === 'no' && this.selectedPlayterToDelete) {

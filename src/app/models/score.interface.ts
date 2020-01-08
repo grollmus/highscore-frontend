@@ -1,5 +1,6 @@
 export interface Score {
-    score: number;
-    reason: string;
-    dateCreated: Date;
+  _id: string;
+  score: number;
+  reason: string;
+  dateCreated: Date;
 }

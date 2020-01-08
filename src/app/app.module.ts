@@ -17,6 +17,7 @@ import { IndexComponent } from '@app/pages/index/index.component';
 import { AuthService, PlayerService } from '@app/services';
 import { AuthInterceptor, ErrorInterceptor } from '@app/interceptors';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ArchiveComponent } from './pages/archive/archive.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     HighscoreComponent,
     NotFoundComponent,
-    IndexComponent
+    IndexComponent,
+    ArchiveComponent
   ],
   imports: [
     BrowserModule,

@@ -20,6 +20,17 @@ $header-border-bottom: 0.25rem solid #d5d5d5 !default;
       }
     }
   }
+
+  .demo-info {
+    background-color: darkred;
+    color: white;
+    line-height: 2rem;
+    vertical-align: middle;
+    text-align: center;
+    small {
+      color: lighten(darkred, 20%);
+    }
+  }
 }
 
 @include header;

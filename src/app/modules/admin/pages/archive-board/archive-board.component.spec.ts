@@ -1,20 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { ArchiveBoardComponent } from './archive-board.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { AllPlayersComponent } from './all-players.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { PlayerService } from '@app/services';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { AppValueDirective } from '../../value.directive';
-
-describe('AllPlayersComponent', () => {
-  let component: AllPlayersComponent;
-  let fixture: ComponentFixture<AllPlayersComponent>;
+describe('ArchiveBoardComponent', () => {
+  let component: ArchiveBoardComponent;
+  let fixture: ComponentFixture<ArchiveBoardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AllPlayersComponent, AppValueDirective],
-      providers: [PlayerService],
+      declarations: [ArchiveBoardComponent],
       imports: [
         ReactiveFormsModule,
         HttpClientTestingModule,
@@ -24,7 +21,7 @@ describe('AllPlayersComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AllPlayersComponent);
+    fixture = TestBed.createComponent(ArchiveBoardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
