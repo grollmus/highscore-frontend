@@ -9,13 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./archive-board.component.scss']
 })
 export class ArchiveBoardComponent implements OnInit {
-  currentYear = new Date().getFullYear();
   archiveBoard = new FormGroup({
     name: new FormControl(null, Validators.required),
-    year: new FormControl(null, [
-      Validators.required,
-      Validators.min(this.currentYear)
-    ])
+    year: new FormControl(null, Validators.required)
   });
 
   constructor(
