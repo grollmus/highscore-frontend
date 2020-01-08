@@ -8,6 +8,7 @@ import { catchError } from 'rxjs/operators';
 @Injectable()
 export class PlayerService {
   private apiUrl = environment.api.players;
+  private apiScoreUrl = environment.api.score;
   private readonly playersApiUrl = environment.api.players;
 
   private playerSubject: BehaviorSubject<Player[]>;
@@ -45,5 +46,11 @@ export class PlayerService {
 
   deletePlayer(playerId: string) {
     return this.httpClient.delete<boolean>(`${this.apiUrl}/${playerId}`);
+  }
+
+  deleteScore(playerId: string, scoreId: string) {
+    return this.httpClient.delete<boolean>(
+      `${this.apiScoreUrl}/${playerId}/${scoreId}`
+    );
   }
 }

@@ -9,6 +9,7 @@ export const environment = {
   api: {
     players: `${apiUrl}/highscore/players`,
     auth: `${apiUrl}/auth`,
-    archive: `${apiUrl}/highscore/archive`
+    archive: `${apiUrl}/highscore/archive`,
+    score: `${apiUrl}/highscore/score`
   }
 };

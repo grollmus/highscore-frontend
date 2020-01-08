@@ -44,7 +44,11 @@
               <div class="cell auto">{{ score.score }}</div>
               <div class="cell auto">{{ score.reason }}</div>
               <div class="cell auto">{{ score.dateCreated | date }}</div>
-              <div class="cellt auto">[<a class="remove">X</a>]</div>
+              <div class="cellt auto">
+                [<a class="remove" (click)="deleteScore(player._id, score._id)">
+                  X </a
+                >]
+              </div>
             </div>
           </td>
         </tr>
