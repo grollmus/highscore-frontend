@@ -1,1 +1,37 @@
-<p>archive works!</p>
+<div class="grid-container">
+  <div class="grid-x">
+    <div class="cell">
+      <table class="nes-table is-bordered is-centered table-full-width">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let player of players | slice: 0:10; index as i">
+            <td>{{ i + 1 }}</td>
+            <td>
+              <i
+                *ngIf="i === 0 && player.totalScore > 0"
+                class="nes-icon trophy is-small"
+              ></i>
+              {{ player.name }}
+            </td>
+            <td class="text-right">
+              {{ player.totalScore | number }}
+            </td>
+          </tr>
+
+          <tr *ngIf="players.length <= 0">
+            <td class="nes-text is-error text-center" colspan="3">
+              <i class="nes-kirby"></i><br />
+              No Players added
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

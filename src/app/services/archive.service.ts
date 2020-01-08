@@ -11,4 +11,12 @@ export class ArchiveService {
   archiveBoard(name: string, year: number) {
     return this.httpClient.post(environment.api.archive, { name, year });
   }
+
+  getArchives() {
+    return this.httpClient.get(environment.api.archive);
+  }
+
+  getArchiveById(id) {
+    return this.httpClient.get(`${environment.api.archive}/${id}`);
+  }
 }
