@@ -1,6 +1,6 @@
 {
   "name": "highscore-frontend",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Frontend for the Grollmus Highscore-Board to count Creative-Day points.",
   "author": "Grollmus München GmbH <developers@grollmus.de> (https://www.grollmus.de/)",
   "maintainers": [
@@ -47,9 +47,9 @@
     "@types/faker": "^4.1.8",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.8",
-    "@types/node": "~13.1.4",
+    "@types/node": "~13.1.6",
     "codelyzer": "^5.2.1",
-    "husky": "^4.0.1",
+    "husky": "^4.0.5",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "^4.4.1",
@@ -60,7 +60,7 @@
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1",
     "protractor": "~5.4.0",
-    "ts-node": "~8.5.2",
+    "ts-node": "~8.6.0",
     "tslint": "~5.20.1",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "~3.5.3"
