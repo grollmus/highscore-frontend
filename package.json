@@ -1,6 +1,6 @@
 {
   "name": "highscore-frontend",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Frontend for the Grollmus Highscore-Board to count Creative-Day points.",
   "author": "Grollmus München GmbH <developers@grollmus.de> (https://www.grollmus.de/)",
   "maintainers": [
@@ -29,7 +29,7 @@
     "@angular/platform-browser": "^8.2.13",
     "@angular/platform-browser-dynamic": "^8.2.13",
     "@angular/router": "^8.2.13",
-    "core-js": "^3.6.1",
+    "core-js": "^3.6.2",
     "dialog-polyfill": "^0.5.0",
     "faker": "^4.1.0",
     "foundation-sites": "^6.6.1",
@@ -40,16 +40,16 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.803.21",
-    "@angular/cli": "^8.3.21",
+    "@angular-devkit/build-angular": "~0.803.22",
+    "@angular/cli": "^8.3.22",
     "@angular/compiler-cli": "^8.2.13",
     "@angular/language-service": "^8.2.14",
     "@types/faker": "^4.1.8",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.8",
-    "@types/node": "~13.1.4",
+    "@types/node": "~13.1.6",
     "codelyzer": "^5.2.1",
-    "husky": "^3.1.0",
+    "husky": "^4.0.5",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "^4.4.1",
@@ -60,7 +60,7 @@
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1",
     "protractor": "~5.4.0",
-    "ts-node": "~8.5.2",
+    "ts-node": "~8.6.0",
     "tslint": "~5.20.1",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "~3.5.3"
