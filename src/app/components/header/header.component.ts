@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
     this.loginDialog = document.querySelector('#dialog-login');
     dialogPolyfill.registerDialog(this.loginDialog);
     this.authService.isExpirationValid();
-    this.authService.currentLoginStatus.subscribe(status => {
+    this.authService.currentLoginStatus$.subscribe(status => {
       this.isLoggedIn = status;
       if (status) {
         this.loginDialog.close();
