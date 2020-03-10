@@ -15,7 +15,7 @@ export class AuthService {
   private readonly expirationPropertyName = 'expires_at';
   private readonly tokenPropertyName = 'token_id';
 
-  currentLoginStatus: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  isLoggedIn$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(
     private readonly httpClient: HttpClient,
@@ -37,7 +37,7 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem(this.tokenPropertyName);
     localStorage.removeItem(this.expirationPropertyName);
-    this.currentLoginStatus.next(false);
+    this.isLoggedIn$.next(false);
   }
 
   private setSession(jwtResponse: Jwt): void {
@@ -47,12 +47,12 @@ export class AuthService {
       this.expirationPropertyName,
       JSON.stringify(expiresAt.valueOf())
     );
-    this.currentLoginStatus.next(true);
+    this.isLoggedIn$.next(true);
   }
 
   isExpirationValid(): boolean {
     const isValid = moment().isBefore(this.getExpiration());
-    this.currentLoginStatus.next(isValid);
+    this.isLoggedIn$.next(isValid);
     return isValid;
   }
 
