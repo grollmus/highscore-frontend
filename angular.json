@@ -139,5 +139,8 @@
       }
     }
   },
-  "defaultProject": "GrollmusLeaderboardClient"
+  "defaultProject": "GrollmusLeaderboardClient",
+  "cli": {
+    "analytics": false
+  }
 }
