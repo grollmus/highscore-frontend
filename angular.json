@@ -60,38 +60,6 @@
                   "maximumError": "5mb"
                 }
               ]
-            },
-            "demo": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.demo.ts"
-                },
-                {
-                  "replace": "src/app/services/auth.service.ts",
-                  "with": "src/app/services/auth-demo.service.ts"
-                },
-                {
-                  "replace": "src/app/services/player.service.ts",
-                  "with": "src/app/services/player-demo.service.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
             }
           }
         },
@@ -103,9 +71,6 @@
           "configurations": {
             "production": {
               "browserTarget": "GrollmusLeaderboardClient:build:production"
-            },
-            "demo": {
-              "browserTarget": "GrollmusLeaderboardClient:build:demo"
             }
           }
         },
@@ -156,9 +121,6 @@
           "configurations": {
             "production": {
               "devServerTarget": "GrollmusLeaderboardClient:serve:production"
-            },
-            "demo": {
-              "devServerTarget": "GrollmusLeaderboardClient:serve:demo"
             }
           }
         },

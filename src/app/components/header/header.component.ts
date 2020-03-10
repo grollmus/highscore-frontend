@@ -21,7 +21,6 @@ export class HeaderComponent implements OnInit {
     password: new FormControl('', Validators.required)
   });
   isLoggedIn: boolean;
-  isDemo = environment.demo;
 
   constructor(
     private readonly authService: AuthService,
