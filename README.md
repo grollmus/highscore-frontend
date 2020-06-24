@@ -1,3 +1,5 @@
+# Archived - Merged into [grollmus/highscore](https://github.com/grollmus/highscore)
+
 <h1 align="center">Welcome to Grollmus Highscore Frontend 👋</h1>
 <p>
   <img alt="CircleCI" src="https://img.shields.io/circleci/build/github/grollmus/highscore-frontend/master?label=ci%20build" />
